@@ -1,4 +1,4 @@
-# Scrapy settings for GameResellerScrapper project
+# Scrapy settings for GameResellerScraper project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,10 +7,10 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = "GameResellerScrapper"
+BOT_NAME = "GameResellerScraper"
 
-SPIDER_MODULES = ["GameResellerScrapper.spiders"]
-NEWSPIDER_MODULE = "GameResellerScrapper.spiders"
+SPIDER_MODULES = ["GameResellerScraper.spiders"]
+NEWSPIDER_MODULE = "GameResellerScraper.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -45,13 +45,13 @@ COOKIES_ENABLED = False
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 # SPIDER_MIDDLEWARES = {
-#    "GameResellerScrapper.middlewares.GameresellerscrapperSpiderMiddleware": 543,
+#    "GameResellerScraper.middlewares.GameResellerScraperSpiderMiddleware": 543,
 # }
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 # DOWNLOADER_MIDDLEWARES = {
-#    "GameResellerScrapper.middlewares.GameresellerscrapperDownloaderMiddleware": 543,
+#    "GameResellerScraper.middlewares.GameResellerScraperDownloaderMiddleware": 543,
 # }
 
 # Enable or disable extensions
@@ -63,7 +63,7 @@ COOKIES_ENABLED = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    "GameResellerScrapper.pipelines.GameresellerscrapperPipeline": 300,
+#    "GameResellerScraper.pipelines.GameResellerScraperPipeline": 300,
 #}
 
 DOWNLOAD_HANDLERS = {

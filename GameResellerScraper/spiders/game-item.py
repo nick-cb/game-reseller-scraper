@@ -5,7 +5,7 @@ from random import randrange
 import scrapy
 from pathlib import Path
 
-class AwesomeSpider(scrapy.Spider):
+class GameResellerScraper(scrapy.Spider):
     name = "game-item"
     host = "https://store.epicgames.com/en-US/p/"
     slugs = ["rain-world-4c860c"]
