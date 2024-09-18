@@ -63,7 +63,7 @@ class GameResellerScraper(scrapy.Spider):
             "price": None,
             "images": [],
             "long_description": None,
-            "origin_slug": None,
+            "ref_slug": None,
             "supported_audio": None,
             "supported_text": None,
             "technical_requirements": None,
@@ -273,12 +273,11 @@ class GameResellerScraper(scrapy.Spider):
         )
         if not mapping_by_page_slug:
             self.logger.warning(f"parse {url} -> not found getMappingByPageSlug")
-        item["origin_slug"] = get_nested(
+        item["ref_slug"] = get_nested(
             mapping_by_page_slug, "state.data.StorePageMapping.mapping.pageSlug"
         )
 
-        with open(f"{url}-parsed.json", "w", encoding="utf-8") as f:
-            _ = f.write(json.dumps(item))
+        yield item
 
         catalog_offer_mappings = get_nested(
             catalog_offer, "state.data.Catalog.catalogOffer.catalogNs.mappings"
@@ -483,7 +482,7 @@ def get_nested(d: Optional[dict[Any, Any]], keys: str, delimiter: str = "."):
     tags: getCatalogOffer.state.data.Catalog.catalogOffer.tags,
     page_slug: ?
     price: getCatalogOffer.state.data.Catalog.catalogOffer.price,
-    origin_slug:
+    ref_slug:
         - getMappingByPageSlug.state.data.StorePageMapping.mapping.pageSlug
         - getCatalogOffer.state.data.Catalog.catalogOffer.catalogNs.mappings['pageType=productHome'].pageSlug
         - egs-platform.state.data.mapping.slug

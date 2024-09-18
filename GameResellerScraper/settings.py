@@ -62,9 +62,9 @@ COOKIES_ENABLED = False
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    "GameResellerScraper.pipelines.GameResellerScraperPipeline": 300,
-#}
+ITEM_PIPELINES = {
+   "GameResellerScraper.pipelines.GameItemPipeline": 300,
+}
 
 DOWNLOAD_HANDLERS = {
     "http": "scrapy_playwright.handler.ScrapyPlaywrightDownloadHandler",
