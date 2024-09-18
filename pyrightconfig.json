@@ -1,0 +1,10 @@
+{
+  "defineConstant": {
+    "DEBUG": true
+  },
+  "pythonVersion": "3.9",
+  "reportMissingImports": "error",
+  "reportMissingTypeStubs": false,
+  "reportUnknownMemberType": false,
+  "reportAny": false,
+}

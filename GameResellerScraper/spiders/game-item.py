@@ -1,186 +1,344 @@
 import json
 import os
 from random import randrange
+from time import sleep
+from typing import Any, cast, Optional
+from typing_extensions import override
 
 import scrapy
 from pathlib import Path
+
+from scrapy.http import Response
+
 
 class GameResellerScraper(scrapy.Spider):
     name = "game-item"
     host = "https://store.epicgames.com/en-US/p/"
     slugs = ["rain-world-4c860c"]
+    scrapped_slugs = []
 
+    @override
     def start_requests(self):
         for slug in self.slugs:
             yield scrapy.Request(f"{self.host}{slug}", meta={"playwright": True})
 
-    def parse(self, response, **kwargs):
-        script_contents = response.xpath('//script/text()').getall()
-        url = response.url.split("/")[-1]
+    @override
+    def parse(self, response: Response, **_):
+        script_contents = cast(Any, response.xpath("//script/text()").getall())
+        url: str = response.url.split("/")[-1]
+        self.scrapped_slugs.append(url)
+        if url not in self.slugs:
+            return
 
-        with open(f'{url}.json', 'w', encoding='utf-8') as f:
+        self.logger.info(f"parse {url} -> extract __REACT_QUERY_INITIAL_QUERIES__")
+        with open(f"{url}.json", "w", encoding="utf-8") as f:
             for script_content in script_contents:
                 if "__REACT_QUERY_INITIAL_QUERIES__" in script_content:
+                    self.logger.info(
+                        f"parse {url} -> saving __REACT_QUERY_INITIAL_QUERIES__ to {url}.json"
+                    )
                     start_index = script_content.find("__REACT_QUERY_INITIAL_QUERIES__")
-                    next_space_index = script_content.find(' ', start_index) + 2
-                    next_line_index = script_content.find('\n', start_index) - 1
-                    f.write(script_content[next_space_index:next_line_index] + '\n\n')
+                    next_space_index = script_content.find(" ", start_index) + 2
+                    next_line_index = script_content.find("\n", start_index) - 1
+                    _ = f.write(
+                        script_content[next_space_index:next_line_index] + "\n\n"
+                    )
 
-        filename = url + '.json'
+        filename = url + ".json"
         p = Path(os.getcwd()) / filename
         if not p.exists():
-            print("NOT EXIST", p)
+            self.logger.error(f"parse {url} -> building item -> not found file", p)
             return
         text = p.read_text()
-        data = json.loads(text)
-        queries = data['queries']
-        item = {
-            'title': None,
-            'ref_id': None,
-            'ref_namespace': None,
-            'developer_display_name': None,
-            'short_description': None,
-            'game_type': None,
-            'publisher_display_name': None,
-            'tags': None,
-            'price': None,
-            'images': None,
-            'long_description': None,
-            'origin_slug': None,
-            'supported_audio': None,
-            'supported_text': None,
-            'technical_requirements': None,
-            'theme': None,
-            'branding': None,
-            'critic_avg': None,
-            'critic_rating': None,
-            'critic_recommend_pct': None,
-            'critic_reviews': None,
-            'poll': None
+        data: dict[Any, Any] = json.loads(text)
+        queries: dict[Any, Any] = data["queries"]
+        item: dict[str, Any] = {
+            "title": None,
+            "ref_id": None,
+            "ref_namespace": None,
+            "developer_display_name": None,
+            "short_description": None,
+            "game_type": None,
+            "publisher_display_name": None,
+            "tags": None,
+            "price": None,
+            "images": [],
+            "long_description": None,
+            "origin_slug": None,
+            "supported_audio": None,
+            "supported_text": None,
+            "technical_requirements": None,
+            "theme": None,
+            "branding": None,
+            "critic_avg": None,
+            "critic_rating": None,
+            "critic_recommend_pct": None,
+            "critic_reviews": None,
+            "poll": None,
         }
 
-        catalog_offer = next(x for x in queries if x['queryKey'][0] == 'getCatalogOffer')
-        item['title'] = get_nested(catalog_offer, 'state.data.Catalog.catalogOffer.title')
-        item['ref_id'] = get_nested(catalog_offer, 'state.data.Catalog.catalogOffer.id')
-        item['ref_namespace'] = get_nested(catalog_offer, 'state.data.Catalog.catalogOffer.namespace')
-        item['developer_display_name'] = get_nested(catalog_offer, 'state.data.Catalog.catalogOffer.developerDisplayName')
-        item['short_description'] = get_nested(catalog_offer, 'state.data.Catalog.catalogOffer.description')
-        item['game_type'] = get_nested(catalog_offer, 'state.data.Catalog.catalogOffer.offerType')
-        item['publisher_display_name'] = get_nested(catalog_offer, 'state.data.Catalog.catalogOffer.publisherDisplayName')
-        catalog_offer_tags = get_nested(catalog_offer, 'state.data.Catalog.catalogOffer.tags')
-        if type(item['tags']) is not list:
-            item['tags'] = []
+        self.logger.info(f"parse {url} -> extract getCatalogOffer")
+        catalog_offer: dict[Any, str] = next(
+            x for x in queries if x["queryKey"][0] == "getCatalogOffer"
+        )
+        if not catalog_offer:
+            self.logger.warning(f"parse {url} -> not found getCatalogOffer")
+        item["title"] = get_nested(
+            catalog_offer, "state.data.Catalog.catalogOffer.title"
+        )
+        item["ref_id"] = get_nested(catalog_offer, "state.data.Catalog.catalogOffer.id")
+        item["ref_namespace"] = get_nested(
+            catalog_offer, "state.data.Catalog.catalogOffer.namespace"
+        )
+        item["developer_display_name"] = get_nested(
+            catalog_offer, "state.data.Catalog.catalogOffer.developerDisplayName"
+        )
+        item["short_description"] = get_nested(
+            catalog_offer, "state.data.Catalog.catalogOffer.description"
+        )
+        item["game_type"] = get_nested(
+            catalog_offer, "state.data.Catalog.catalogOffer.offerType"
+        )
+        item["publisher_display_name"] = get_nested(
+            catalog_offer, "state.data.Catalog.catalogOffer.publisherDisplayName"
+        )
+        catalog_offer_tags = (
+            cast(
+                list[Any],
+                get_nested(catalog_offer, "state.data.Catalog.catalogOffer.tags"),
+            )
+            or []
+        )
+        if type(item["tags"]) is not list:
+            item["tags"] = []
         for tag in catalog_offer_tags:
-            item['tags'].append({
-                'ref_id': tag.get('id'),
-                'name': tag.get('name'),
-                'group_name': tag.get('groupName')
-            })
-        catalog_offer_price = get_nested(catalog_offer, 'state.data.Catalog.catalogOffer.price')
-        item['price'] = {
-            'discount_price': get_nested(catalog_offer_price, 'totalPrice.discountPrice'),
-            'origin_price': get_nested(catalog_offer_price, 'totalPrice.originalPrice'),
-            'discount': get_nested(catalog_offer_price, 'totalPrice.discount'),
+            item["tags"].append(
+                {
+                    "ref_id": tag.get("id"),
+                    "name": tag.get("name"),
+                    "group_name": tag.get("groupName"),
+                }
+            )
+        catalog_offer_price = get_nested(
+            catalog_offer, "state.data.Catalog.catalogOffer.price"
+        )
+        item["price"] = {
+            "discount_price": get_nested(
+                catalog_offer_price, "totalPrice.discountPrice"
+            ),
+            "origin_price": get_nested(catalog_offer_price, "totalPrice.originalPrice"),
+            "discount": get_nested(catalog_offer_price, "totalPrice.discount"),
         }
-        catalog_offer_images = get_nested(catalog_offer, 'state.data.Catalog.catalogOffer.keyImages')
-        if type(item['images']) is not list:
-            item['images'] = []
+        catalog_offer_images = (
+            cast(
+                list[Any],
+                get_nested(catalog_offer, "state.data.Catalog.catalogOffer.keyImages"),
+            )
+            or []
+        )
         for image in catalog_offer_images:
-            item['images'].append({
-                'type': image.get('type'),
-                'url': image.get('url'),
-                'alt': item.get('title') + random_str()
-            })
-        # catalog_offer_mappings = catalog_offer.state.data.Catalog.catalogOffer.catalogNs.mappings
-        # if catalog_offer_mappings and item['game_type'] == 'BASE_GAME':
-        #     for mapping in catalog_offer_mappings:
-        #         yield scrapy.Request(f"${self.host}${mapping.pageSlug}", callback=self.parse)
+            item["images"].append(
+                {
+                    "type": image.get("type"),
+                    "url": image.get("url"),
+                    "alt": cast(str, item.get("title")) + "-" + random_str(),
+                }
+            )
 
-        product_home_config = next(x for x in queries if x['queryKey'][0] == 'getProductHomeConfig')
-        if product_home_config:
-            product_home_config_config = get_nested(product_home_config, 'state.data.Product.sandbox.configuration')[1]
-            item['long_description'] = get_nested(product_home_config_config, 'configs.longDescription')
-            product_home_config_images = get_nested(product_home_config_config, 'configs.keyImages')
-            if type(item['images']) is not list:
-                item['images'] = []
-            item['images'] = item.get('images') + product_home_config_images
+        self.logger.info(f"parse {url} -> extract getProductHomeConfig")
+        product_home_config = next(
+            (x for x in queries if x["queryKey"][0] == "getProductHomeConfig"), None
+        )
+        if not product_home_config:
+            self.logger.warning(f"parse {url} -> not found getProductHomeConfig")
+        product_home_config_config = (
+            cast(
+                list[Any],
+                get_nested(
+                    product_home_config, "state.data.Product.sandbox.configuration"
+                ),
+            )
+            or []
+        )
+        if product_home_config_config:
+            item["long_description"] = get_nested(
+                product_home_config_config[1], "configs.longDescription"
+            )
+            product_home_config_images = (
+                cast(
+                    list[Any],
+                    get_nested(product_home_config_config[1], "configs.keyImages"),
+                )
+                or []
+            )
+            item["images"] = (
+                cast(list[Any], item.get("images")) + product_home_config_images
+            )
 
-        store_config = next(x for x in queries if x['queryKey'][0] == 'getStoreConfig')
-        store_config_sandbox_config = get_nested(store_config, 'state.data.Product.sandbox.configuration')
-        if store_config_sandbox_config:
-            print('STORE_CONFIG_SANDBOX_CONFIG: ', store_config_sandbox_config)
-            game_store_config = next(x for x in store_config_sandbox_config if get_nested(x, 'configs.productDisplayName') == item['title'])
-            print('GAME_STORE_CONFIG:', game_store_config)
-            item['supported_audio'] = get_nested(game_store_config, 'configs.supportedAudio')
-            item['supported_text'] = get_nested(game_store_config, 'configs.supportedText')
-            item['technical_requirements'] = get_nested(game_store_config, 'configs.technicalRequirements')
-            item['theme'] = get_nested(game_store_config, 'configs.theme')
-            if type(item['images']) is not list:
-                item['images'] = []
-            item['images'] = item.get('images') + get_nested(game_store_config, 'configs.keyImages')
+        self.logger.info(f"parse {url} -> extract getStoreConfig")
+        store_config = next(x for x in queries if x["queryKey"][0] == "getStoreConfig")
+        store_config_sandbox_config = (
+            cast(
+                list[Any],
+                get_nested(store_config, "state.data.Product.sandbox.configuration"),
+            )
+            or []
+        )
+        if not store_config_sandbox_config:
+            self.logger.warning(f"parse {url} -> not found getStoreConfig")
+        game_store_config = next(
+            (
+                x
+                for x in store_config_sandbox_config
+                if get_nested(x, "configs.productDisplayName") == item["title"]
+            ),
+            None,
+        )
+        if game_store_config:
+            item["supported_audio"] = get_nested(
+                game_store_config, "configs.supportedAudio"
+            )
+            item["supported_text"] = get_nested(
+                game_store_config, "configs.supportedText"
+            )
+            item["technical_requirements"] = get_nested(
+                game_store_config, "configs.technicalRequirements"
+            )
+            item["theme"] = get_nested(game_store_config, "configs.theme")
+            if type(item["images"]) is not list:
+                item["images"] = []
+            item["images"] = cast(list[Any], item.get("images")) + (
+                get_nested(game_store_config, "configs.keyImages") or []
+            )
 
+        self.logger.info(f"parse {url} -> extract egs-platform(s)")
         for query in queries:
-            if query['queryKey'][0] == 'egs-platform':
-                item['branding'] = get_nested(query, 'state.data.branding') or item['branding']
-                item['critic_avg'] = get_nested(query, 'state.data.criticReviews.criticAverage') or item['critic_avg']
-                item['critic_rating'] = get_nested(query, 'state.data.criticReviews.criticRating') or item['critic_rating']
-                item['critic_recommend_pct'] = get_nested(query, 'state.data.criticReviews.recommendPercentage') or item['critic_recommend_pct']
-                item['critic_reviews'] = get_nested(query, 'state.data.criticReviews.reviews') or item['critic_reviews']
+            if query["queryKey"][0] == "egs-platform":
+                self.logger.info(f"parse {url} -> found egs-platform")
+                item["branding"] = (
+                    get_nested(query, "state.data.branding") or item["branding"]
+                )
+                item["critic_avg"] = (
+                    get_nested(query, "state.data.criticReviews.criticAverage")
+                    or item["critic_avg"]
+                )
+                item["critic_rating"] = (
+                    get_nested(query, "state.data.criticReviews.criticRating")
+                    or item["critic_rating"]
+                )
+                item["critic_recommend_pct"] = (
+                    get_nested(query, "state.data.criticReviews.recommendPercentage")
+                    or item["critic_recommend_pct"]
+                )
+                item["critic_reviews"] = (
+                    get_nested(query, "state.data.criticReviews.reviews")
+                    or item["critic_reviews"]
+                )
 
-        item['poll'] = []
-        product_result = next(x for x in queries if x['queryKey'][0] == 'getProductResult')
-        product_result_poll = get_nested(product_result, 'state.data.RatingsPolls.getProductResult.pollResult')
-        for poll in product_result_poll:
-            item['poll'].append({
-                'ref_id': poll['id'],
-                'ref_tag_id': poll['tagId'],
-                'ref_poll_definition_id': poll['pollDefinitionId'],
-                'text': get_nested(poll, 'localizations.text'),
-                'emoji': get_nested(poll, 'localizations.emoji'),
-                'result_emoji': get_nested(poll, 'localizations.result_emoji'),
-                'result_title': get_nested(poll, 'localizations.result_title'),
-                'result_text': get_nested(poll, 'localizations.result_text'),
-                'total': poll.get('total'),
-            })
+        self.logger.info(f"parse {url} -> extract getProductResult")
+        product_result = next(
+            (x for x in queries if x["queryKey"][0] == "getProductResult"), None
+        )
+        if product_result:
+            product_result_poll = (
+                cast(
+                    list[Any],
+                    get_nested(
+                        product_result,
+                        "state.data.RatingsPolls.getProductResult.pollResult",
+                    ),
+                )
+                or []
+            )
+            if not product_result:
+                self.logger.warning(f"parse {url} -> not found getProductResult")
+            item["poll"] = []
+            for poll in product_result_poll:
+                item["poll"].append(
+                    {
+                        "ref_id": poll["id"],
+                        "ref_tag_id": poll["tagId"],
+                        "ref_poll_definition_id": poll["pollDefinitionId"],
+                        "text": get_nested(poll, "localizations.text"),
+                        "emoji": get_nested(poll, "localizations.emoji"),
+                        "result_emoji": get_nested(poll, "localizations.result_emoji"),
+                        "result_title": get_nested(poll, "localizations.result_title"),
+                        "result_text": get_nested(poll, "localizations.result_text"),
+                        "total": poll.get("total"),
+                    }
+                )
 
-        mapping_by_page_slug = next(x for x in queries if x['queryKey'][0] == 'getMappingByPageSlug')
-        item['origin_slug'] = get_nested(mapping_by_page_slug, "state.data.StorePageMapping.mapping.pageSlug")
+        self.logger.info(f"parse {url} -> extract getMappingByPageSlug")
+        mapping_by_page_slug = next(
+            x for x in queries if x["queryKey"][0] == "getMappingByPageSlug"
+        )
+        if not mapping_by_page_slug:
+            self.logger.warning(f"parse {url} -> not found getMappingByPageSlug")
+        item["origin_slug"] = get_nested(
+            mapping_by_page_slug, "state.data.StorePageMapping.mapping.pageSlug"
+        )
 
-        with open(f'{url}-parsed.json', 'w', encoding='utf-8') as f:
-            f.write(json.dumps(item))
+        with open(f"{url}-parsed.json", "w", encoding="utf-8") as f:
+            _ = f.write(json.dumps(item))
+
+        catalog_offer_mappings = get_nested(
+            catalog_offer, "state.data.Catalog.catalogOffer.catalogNs.mappings"
+        )
+        print(catalog_offer, catalog_offer_mappings)
+        if catalog_offer_mappings and item["game_type"] == "BASE_GAME":
+            for mapping in catalog_offer_mappings:
+                if (
+                    mapping["pageSlug"]
+                    and mapping["pageSlug"] not in self.scrapped_slugs
+                ):
+                    self.slugs.append(mapping["pageSlug"])
+                    self.logger.info(
+                        f"parse {url} -> following link {self.host}{mapping['pageSlug']}"
+                    )
+                    # page = response.meta["playwright_page"]
+                    sleep(30)
+                    yield scrapy.Request(
+                        url=f"{self.host}{mapping['pageSlug']}",
+                        callback=self.parse,
+                        meta={"playwright": True},
+                    )
+
 
 def random_str():
     result = ""
-    characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    for i in range(0, 5):
+    characters = "abcdefghijklmnopqrstuvwxyz0123456789"
+    for _ in range(0, 5):
         rand = randrange(36)
         result = result + characters[rand]
 
     return result
 
-def get_nested(d, keys, delimiter="."):
-    keys = keys.split(delimiter)
-    for key in keys:
+
+def get_nested(d: Optional[dict[Any, Any]], keys: str, delimiter: str = "."):
+    splited_keys = keys.split(delimiter)
+    if not d:
+        return None
+    for key in splited_keys:
         d = d.get(key, None)
         if d is None:
             return None
     return d
 
 
-''' launcherVersion
+""" launcherVersion
     - Nothing important, just some metadata
-'''
+"""
 
-''' getMappingByPageSlug
+""" getMappingByPageSlug
     - Some information about the product
         - sandboxId: c8b495f1a9a34972ba0b0c46e8afec31
         - productId: da2d8e4b946b4b50b1ad818727469873
         - mappings.offerId: 1efa9febbd9744caab24276d9c273862
         - mappings.namespace: c8b495f1a9a34972ba0b0c46e8afec31
         - mappings.pageSlug
-'''
+"""
 
-''' getCatalogOffer (multiple)
+""" getCatalogOffer (multiple)
     - Original Game
         - title
         - developerDisplayName
@@ -211,9 +369,9 @@ def get_nested(d, keys, delimiter="."):
         - categories
         - price
         - catalogNs.mappings
-'''
+"""
 
-''' getStoreConfig
+""" getStoreConfig
     - Includes several important information:
         - banner: nullable
         - developerDisplayName
@@ -226,13 +384,13 @@ def get_nested(d, keys, delimiter="."):
         - tags
         - technicalRequirements
         - theme
-'''
+"""
 
-''' getRelatedOfferIdsByCategory (multiple)
+""" getRelatedOfferIdsByCategory (multiple)
     - Nothing important
-'''
+"""
 
-''' egs-platform: Multiple
+""" egs-platform: Multiple
     - ageRating
     
     - branding (colors)
@@ -245,34 +403,34 @@ def get_nested(d, keys, delimiter="."):
     - tags (organized)
     
     - criticReviews
-'''
+"""
 
-''' Achievement
+""" Achievement
     - Nothing important
-'''
+"""
 
-''' getCatalogNamespace
+""" getCatalogNamespace
     - Product relates (addons, editions...)
-'''
+"""
 
-''' getProductResult
+""" getProductResult
     - averageRating
     - pollResult
-'''
+"""
 
-''' getProductHomeConfig
+""" getProductHomeConfig
     - keyImages (heroCarousel)
     - longDescriptions
-'''
+"""
 
-''' getVideoById
+""" getVideoById
     - Videos
-'''
+"""
 
-''' getProductInBundles?
-'''
+""" getProductInBundles?
+"""
 
-''' abafd6e0aa80535c43676f533f0283c7f5214a59e9fae6ebfb37bed1b1bb2e9b (Hash that appear in queryKey - multiples)
+""" abafd6e0aa80535c43676f533f0283c7f5214a59e9fae6ebfb37bed1b1bb2e9b (Hash that appear in queryKey - multiples)
     - List of item include current game and relate contents
         - title
         - developerDisplayName
@@ -287,10 +445,9 @@ def get_nested(d, keys, delimiter="."):
         - categories
         - catalogNs.mapping.pageSlug
         - price
-'''
+"""
 
-
-'''
+"""
 * Using getCatalogOffer.state.data.Catalog.catalogOffer.catalogNs.mappings to iterate all relate contents,
 * Using egs-platform.state.data.supportedModules to check if the game has addon or edition
 {
@@ -328,4 +485,4 @@ def get_nested(d, keys, delimiter="."):
     polls: getProductResult.state.data.RatingsPolls.getProductResult.pollResult
     videos: getVideoById.state.data.Video.fetchVideoByLocale
 }
-'''
+"""
