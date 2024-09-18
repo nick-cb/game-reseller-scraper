@@ -311,7 +311,7 @@ class GameResellerScraper(scrapy.Spider):
                         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:130.0) Gecko/20100101 Firefox/130.0",
                     }
                     yield scrapy.Request(
-                        url="https://store.epicgames.com/en-US/p/rain-world-downpour-a3ccfb",
+                        url=f"{self.host}{mapping['pageSlug']}",
                         headers=headers,
                         callback=self.parse,
                         meta={"playwright": True},
