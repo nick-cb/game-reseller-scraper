@@ -97,4 +97,9 @@ REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
 
-SPLASH_URL = 'http://192.168.59.103:8050'
+# SPLASH_URL = 'http://192.168.59.103:8050'
+PLAYWRIGHT_LAUNCH_OPTIONS = {
+    "headless": True,
+}
+
+PLAYWRIGHT_BROWSER_TYPE = "firefox"

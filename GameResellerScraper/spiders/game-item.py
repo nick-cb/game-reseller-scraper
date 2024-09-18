@@ -1,7 +1,6 @@
 import json
 import os
 from random import randrange
-from time import sleep
 from typing import Any, cast, Optional
 from typing_extensions import override
 
@@ -284,7 +283,6 @@ class GameResellerScraper(scrapy.Spider):
         catalog_offer_mappings = get_nested(
             catalog_offer, "state.data.Catalog.catalogOffer.catalogNs.mappings"
         )
-        print(catalog_offer, catalog_offer_mappings)
         if catalog_offer_mappings and item["game_type"] == "BASE_GAME":
             for mapping in catalog_offer_mappings:
                 if (
@@ -295,10 +293,26 @@ class GameResellerScraper(scrapy.Spider):
                     self.logger.info(
                         f"parse {url} -> following link {self.host}{mapping['pageSlug']}"
                     )
-                    # page = response.meta["playwright_page"]
-                    sleep(30)
+                    headers = {
+                        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8",
+                        "Accept-Encoding": "gzip, deflate, br, zstd",
+                        "Accept-Language": "en-US,en;q=0.5",
+                        "Alt-Used": "store.epicgames.com",
+                        "Connection": "keep-alive",
+                        "Cookie": "EPIC_LOCALE_COOKIE=en-US; __cf_bm=j3hez.1HwFAKhyOHIKsSs8uQoHk3WRb32g_ATgU_psE-1726660815-1.0.1.1-DQVFkMkfrzO2Kuil7mORLVYZecyaO2Ft6WbMvCNkECrQlZuk0anaSMZIDaTt953YZwxyumLh3XBuX9EBjZBPYg; cf_clearance=q9H8qPIKxf.EuNFtvPY7PQ6_SozfEWq9PTu1YtGKbNo-1726660816-1.2.1.1-n0UeIgE5ugJOBq77Hewti57OjTwVrNiZRudzK.Djl0vD0zSmvrnzICY1tffjt6z3gufRj5qZqYZVuu7sCFsY9Qa4g7C9lHWQS4pEqFx14sStnoAGY..NXyewlZUCoPk9kWHdDyG2wL2vJjBrpJDWA53iOqL1AoFKDlMLyNL.38dzzEJ29Ix.Mk_tCWe45WkWglYaygigZnlbSHWIVMV4NWSVnQvtt5dbKoWSvBKUG7TJ9KjfO3wf7hxofPYKfXyVbMVSCz8jh_UxUWDm.XUxPBEHZNpXTMfhjRTkz2D4ao_uKarjQeAOTmRV5K7aez7pRX8ceQOgiW5w8mRG_p6yyA; _epicSID=cab998b78e6244d881e0150515483fe6",
+                        "Host": "store.epicgames.com",
+                        "Priority": "u=0, i",
+                        "Sec-Fetch-Dest": "document",
+                        "Sec-Fetch-Mode": "navigate",
+                        "Sec-Fetch-Site": "none",
+                        "Sec-Fetch-User": "?1",
+                        "TE": "trailers",
+                        "Upgrade-Insecure-Requests": "1",
+                        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:130.0) Gecko/20100101 Firefox/130.0",
+                    }
                     yield scrapy.Request(
-                        url=f"{self.host}{mapping['pageSlug']}",
+                        url="https://store.epicgames.com/en-US/p/rain-world-downpour-a3ccfb",
+                        headers=headers,
                         callback=self.parse,
                         meta={"playwright": True},
                     )
@@ -316,13 +330,14 @@ def random_str():
 
 def get_nested(d: Optional[dict[Any, Any]], keys: str, delimiter: str = "."):
     splited_keys = keys.split(delimiter)
+    result: Any = d
     if not d:
         return None
     for key in splited_keys:
-        d = d.get(key, None)
-        if d is None:
+        result = result.get(key, None)
+        if result is None:
             return None
-    return d
+    return result
 
 
 """ launcherVersion

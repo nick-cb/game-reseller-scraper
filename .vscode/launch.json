@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "type": "python",
+          "request": "launch",
+          "name": "Python: Launch Scrapy Spider",
+          "module": "scrapy",
+          "args": ["runspider", "${file}"],
+          "console": "integratedTerminal"
+      }
+  ],
+  "compounds": []
+}
