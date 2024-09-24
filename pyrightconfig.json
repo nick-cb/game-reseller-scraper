@@ -7,4 +7,9 @@
   "reportMissingTypeStubs": false,
   "reportUnknownMemberType": false,
   "reportAny": false,
+  "reportUnreachable": false,
+  "reportUnknownArgumentType": false,
+  "reportUnknownLambdaType": false,
+  "reportUnknownVariableType": false,
+  "reportUnknownParameterType": false
 }
