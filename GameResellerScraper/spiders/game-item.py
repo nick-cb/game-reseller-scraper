@@ -7,6 +7,8 @@ import scrapy
 
 from scrapy.http import Response
 
+from GameResellerScraper.items import GameItem
+
 
 class GameResellerScraper(scrapy.Spider):
     name = "game-item"
@@ -25,7 +27,7 @@ class GameResellerScraper(scrapy.Spider):
         url: str = response.url.split("/")[-1]
         self.scrapped_slugs.append(url)
         if url not in self.slugs:
-            return
+            return {}
 
         self.logger.info(f"parse {url} -> extract __REACT_QUERY_INITIAL_QUERIES__")
         data = {}
@@ -47,35 +49,37 @@ class GameResellerScraper(scrapy.Spider):
         )
         egs_platform = self.extract_egs_platform(queries=queries, url=url)
         product_result = self.extract_product_result(queries=queries, url=url)
-        item: dict[str, Any] = {
-            "title": catalog_offer["title"],
-            "ref_id": catalog_offer["ref_id"],
-            "ref_namespace": catalog_offer["ref_namespace"],
-            "developer_display_name": catalog_offer["developer_display_name"],
-            "short_description": catalog_offer["short_description"],
-            "game_type": catalog_offer["game_type"],
-            "publisher_display_name": catalog_offer["publisher_display_name"],
-            "tags": catalog_offer["tags"],
-            "price": catalog_offer["price"],
-            "images": catalog_offer["images"]
-            + product_home_config["images"]
-            + store_config["images"],
-            "long_description": product_home_config["long_description"],
-            "ref_slug": None,
-            "supported_audio": store_config["supported_audio"],
-            "supported_text": store_config["supported_text"],
-            "technical_requirements": store_config["technical_requirements"],
-            "theme": store_config["theme"],
-            "branding": egs_platform["branding"],
-            "critic_avg": egs_platform["critic_avg"],
-            "critic_rating": egs_platform["critic_rating"],
-            "critic_recommend_pct": egs_platform["critic_recommend_pct"],
-            "critic_reviews": egs_platform["critic_reviews"],
-            "polls": product_result["polls"],
-        }
+        mapping_by_page_slug = self.extract_mapping_by_page_slug(queries=queries, url=url)
+        item = GameItem(
+            title=catalog_offer.get("title"),
+            ref_id=catalog_offer.get("ref_id"),
+            ref_namespace=catalog_offer.get("ref_namespace"),
+            developer_display_name=catalog_offer.get("developer_display_name"),
+            short_description=catalog_offer.get("short_description"),
+            game_type=catalog_offer.get("game_type"),
+            publisher_display_name=catalog_offer.get("publisher_display_name"),
+            tags=catalog_offer.get("tags"),
+            price=catalog_offer.get("price"),
+            images=(catalog_offer.get("images") or [])
+            + (product_home_config.get("images") or [])
+            + (store_config.get("images") or []),
+            long_description=product_home_config.get("long_description")
+            or catalog_offer.get("long_description"),
+            ref_slug=mapping_by_page_slug.get("ref_slug"),
+            supported_audio=store_config.get("supported_audio"),
+            supported_text=store_config.get("supported_text"),
+            technical_requirements=store_config.get("technical_requirements"),
+            theme=store_config.get("theme"),
+            branding=egs_platform.get("branding"),
+            critic_avg=egs_platform.get("critic_avg"),
+            critic_rating=egs_platform.get("critic_rating"),
+            critic_recommend_pct=egs_platform.get("critic_recommend_pct"),
+            critic_reviews=egs_platform.get("critic_reviews"),
+            polls=product_result.get("polls"),
+        )
 
         yield item
-        yield next_request(catalog_offer["mappings"], url)
+        yield self.next_request(catalog_offer["mappings"], url)
 
     def next_request(self, mappings: list[Any], url: str):
         for mapping in mappings:
@@ -99,7 +103,7 @@ class GameResellerScraper(scrapy.Spider):
                     "Upgrade-Insecure-Requests": "1",
                     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:130.0) Gecko/20100101 Firefox/130.0",
                 }
-                yield scrapy.Request(
+                return scrapy.Request(
                     url=f"{self.host}{mapping['pageSlug']}",
                     headers=headers,
                     callback=self.parse,
@@ -111,18 +115,19 @@ class GameResellerScraper(scrapy.Spider):
         catalog_offer_query = next(x for x in queries if x["queryKey"][0] == "getCatalogOffer")
         if not catalog_offer_query:
             self.logger.warning(f"parse {url} -> not found getCatalogOffer")
+            return {}
         catalog_offer = cast(
             dict[Any, Any], get_nested(catalog_offer_query, "state.data.Catalog.catalogOffer")
         )
 
         item = {
-            "title": catalog_offer["title"],
-            "ref_id": catalog_offer["ref_id"],
-            "ref_namespace": catalog_offer["namespace"],
-            "developer_display_name": catalog_offer["developerDisplayName"],
-            "short_description": catalog_offer["description"],
-            "game_type": catalog_offer["game_type"],
-            "publisher_display_name": catalog_offer["publisherDisplayName"],
+            "title": catalog_offer.get("title"),
+            "ref_id": catalog_offer.get("id"),
+            "ref_namespace": catalog_offer.get("namespace"),
+            "developer_display_name": catalog_offer.get("developerDisplayName"),
+            "short_description": catalog_offer.get("description"),
+            "game_type": catalog_offer.get("game_type"),
+            "publisher_display_name": catalog_offer.get("publisherDisplayName"),
             "tags": list(
                 map(
                     lambda x: {
@@ -133,8 +138,14 @@ class GameResellerScraper(scrapy.Spider):
                     catalog_offer.get("tags") or [],
                 )
             ),
-            "images": get_nested(catalog_offer, "state.data.Catalog.catalogOffer.keyImages") or [],
+            "images": get_nested(catalog_offer, "keyImages") or [],
             "mappings": get_nested(catalog_offer, "catalogNs.mappings"),
+            "price": {
+                "discount_price": get_nested(catalog_offer, "price.totalPrice.discountPrice"),
+                "origin_price": get_nested(catalog_offer, "price.totalPrice.originalPrice"),
+                "discount": get_nested(catalog_offer, "price.totalPrice.discount"),
+            },
+            "long_description": get_nested(catalog_offer, "longDescription"),
         }
 
         return item
@@ -142,11 +153,13 @@ class GameResellerScraper(scrapy.Spider):
     def extract_product_home_config(self, queries: dict[Any, Any], url: str):
         self.logger.info(f"parse {url} -> extract getProductHomeConfig")
         query = next((x for x in queries if x["queryKey"][0] == "getProductHomeConfig"), None)
-        sandbox_config: list[Any] = (
-            get_nested(query, "state.data.Product.sandbox.configuration") or []
+        sandbox_config = cast(
+            list[Any], get_nested(query, "state.data.Product.sandbox.configuration")
         )
         if not sandbox_config:
             self.logger.warning(f"parse {url} -> not found getProductHomeConfig")
+            return {}
+
         item = {
             "long_description": get_nested(sandbox_config[1], "configs.longDescription"),
             "images": get_nested(sandbox_config[1], "configs.keyImages"),
@@ -162,6 +175,7 @@ class GameResellerScraper(scrapy.Spider):
         )
         if not sandbox_config:
             self.logger.warning(f"parse {url} -> not found getStoreConfig")
+            return {}
         current_game_config = next(
             (
                 x
@@ -185,13 +199,21 @@ class GameResellerScraper(scrapy.Spider):
 
     def extract_egs_platform(self, queries: dict[Any, Any], url: str):
         self.logger.info(f"parse {url} -> extract egs-platform(s)")
-        item: dict[Any, Any] = {}
+        item: dict[Any, Any] = {
+            "branding": None,
+            "critic_avg": None,
+            "critic_rating": None,
+            "critic_recommend_pct": None,
+            "critic_reviews": None,
+        }
         for query in queries:
             if query["queryKey"][0] == "egs-platform":
                 self.logger.info(f"parse {url} -> found egs-platform")
                 item["branding"] = get_nested(query, "state.data.branding") or item["branding"]
 
-                criticReviews = cast(dict[Any, Any], get_nested(query, "state.data.criticReviews"))
+                criticReviews = get_nested(query, "state.data.criticReviews")
+                if type(criticReviews) is not dict:
+                    continue
                 item["critic_avg"] = criticReviews.get("criticAverage") or item["critic_avg"]
                 item["critic_rating"] = criticReviews.get("criticRating") or item["critic_rating"]
                 item["critic_recommend_pct"] = (
@@ -206,14 +228,14 @@ class GameResellerScraper(scrapy.Spider):
         query = next((x for x in queries if x["queryKey"][0] == "getProductResult"), None)
         if not query:
             self.logger.warning(f"parse {url} -> not found getProductResult")
-            return
+            return {}
 
         poll_result: list[Any] = (
             get_nested(query, "state.data.RatingsPolls.getProductResult.pollResult") or []
         )
         if not poll_result:
             self.logger.warning(f"parse {url} -> not found pollResult")
-            return
+            return {}
 
         polls: Any = map(
             lambda x: {
@@ -230,13 +252,14 @@ class GameResellerScraper(scrapy.Spider):
             poll_result,
         )
 
-        return list(polls)
+        return {"polls": list(polls)}
 
     def extract_mapping_by_page_slug(self, queries: dict[Any, Any], url: str):
         self.logger.info(f"parse {url} -> extract getMappingByPageSlug")
         query = next(x for x in queries if x["queryKey"][0] == "getMappingByPageSlug")
         if not query:
             self.logger.warning(f"parse {url} -> not found getMappingByPageSlug")
+            return {}
 
         return {"ref_slug": get_nested(query, "state.data.StorePageMapping.mapping.pageSlug")}
 

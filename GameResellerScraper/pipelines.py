@@ -6,14 +6,15 @@
 
 # useful for handling different item types with a single interface
 
-from typing import Any
 from itemadapter.adapter import ItemAdapter
 from scrapy import Spider
 from scrapy.http.request.json_request import json
 
+from GameResellerScraper.items import GameItem
+
 
 class GameItemPipeline:
-    def process_item(self, item: dict[str, Any], _: Spider):
+    def process_item(self, item: GameItem, _: Spider):
         ref_slug = item.get("ref_slug")
         if ref_slug == None or type(ref_slug) != str:
             return

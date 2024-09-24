@@ -8,3 +8,4 @@
 - [ ] Types
     - [ ] Game item interface
 - [ ] Refactor `game-item` spider
+- [ ] Item Loaders

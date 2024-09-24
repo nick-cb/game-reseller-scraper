@@ -6,7 +6,26 @@
 import scrapy
 
 
-class GameResellerScraperItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class GameItem(scrapy.Item):
+    title = scrapy.Field()
+    ref_id = scrapy.Field()
+    ref_namespace = scrapy.Field()
+    developer_display_name = scrapy.Field()
+    short_description = scrapy.Field()
+    game_type = scrapy.Field()
+    publisher_display_name = scrapy.Field()
+    tags = scrapy.Field()
+    price = scrapy.Field()
+    images = scrapy.Field()
+    long_description = scrapy.Field()
+    ref_slug = scrapy.Field()
+    supported_audio = scrapy.Field()
+    supported_text = scrapy.Field()
+    technical_requirements = scrapy.Field()
+    theme = scrapy.Field()
+    branding = scrapy.Field()
+    critic_avg = scrapy.Field()
+    critic_rating = scrapy.Field()
+    critic_recommend_pct = scrapy.Field()
+    critic_reviews = scrapy.Field()
+    polls = scrapy.Field()
