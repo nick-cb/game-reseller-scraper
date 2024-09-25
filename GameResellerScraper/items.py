@@ -12,7 +12,7 @@ class GameItem(scrapy.Item):
     ref_namespace = scrapy.Field()
     developer_display_name = scrapy.Field()
     short_description = scrapy.Field()
-    game_type = scrapy.Field()
+    item_type = scrapy.Field()
     publisher_display_name = scrapy.Field()
     tags = scrapy.Field()
     price = scrapy.Field()

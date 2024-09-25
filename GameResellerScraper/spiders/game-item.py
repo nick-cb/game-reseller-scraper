@@ -56,7 +56,7 @@ class GameResellerScraper(scrapy.Spider):
             ref_namespace=catalog_offer.get("ref_namespace"),
             developer_display_name=catalog_offer.get("developer_display_name"),
             short_description=catalog_offer.get("short_description"),
-            game_type=catalog_offer.get("game_type"),
+            item_type=catalog_offer.get("game_type"),
             publisher_display_name=catalog_offer.get("publisher_display_name"),
             tags=catalog_offer.get("tags"),
             price=catalog_offer.get("price"),
@@ -79,7 +79,7 @@ class GameResellerScraper(scrapy.Spider):
         )
 
         yield item
-        yield self.next_request(catalog_offer["mappings"], url)
+        # yield self.next_request(catalog_offer["mappings"], url)
 
     def next_request(self, mappings: list[Any], url: str):
         for mapping in mappings:
@@ -146,6 +146,7 @@ class GameResellerScraper(scrapy.Spider):
                 "discount": get_nested(catalog_offer, "price.totalPrice.discount"),
             },
             "long_description": get_nested(catalog_offer, "longDescription"),
+            "releaseDate": get_nested(catalog_offer, "releaseDate"),
         }
 
         return item
@@ -219,7 +220,24 @@ class GameResellerScraper(scrapy.Spider):
                 item["critic_recommend_pct"] = (
                     criticReviews.get("recommendPercentage") or item["critic_recommend_pct"]
                 )
-                item["critic_reviews"] = criticReviews.get("reviews") or item["critic_reviews"]
+                reviews = criticReviews.get("reviews")
+                if not reviews or type(reviews) is not dict:
+                    continue
+                if not item["critic_reviews"]:
+                    item["critic_reviews"] = []
+                for review in reviews.get("data") or []:
+                    _ = item["critic_reviews"].append(
+                        {
+                            "author": review.get("author"),
+                            "body": review.get("body"),
+                            "score": {
+                                "type": review.get("score").get("__typename"),
+                                "earned_score": review.get("score").get("earnedScore"),
+                                "total_score": review.get("score").get("totalScore"),
+                            },
+                            "url": review.get("url"),
+                        }
+                    )
 
         return item
 
@@ -244,9 +262,9 @@ class GameResellerScraper(scrapy.Spider):
                 "ref_poll_definition_id": x.get("pollDefinitionId"),
                 "text": get_nested(x, "localizations.text"),
                 "emoji": get_nested(x, "localizations.emoji"),
-                "result_emoji": get_nested(x, "localizations.result_emoji"),
-                "result_title": get_nested(x, "localizations.result_title"),
-                "result_text": get_nested(x, "localizations.result_text"),
+                "result_emoji": get_nested(x, "localizations.resultEmoji"),
+                "result_title": get_nested(x, "localizations.resultTitle"),
+                "result_text": get_nested(x, "localizations.resultText"),
                 "total": x.get("total"),
             },
             poll_result,
@@ -314,6 +332,7 @@ def get_nested(d: Optional[dict[Any, Any]], keys: str, delimiter: str = "."):
         - catalogNs.mappings: Dlc, addons, other version
         - price
         - mappings.pageSlug
+        - releaseDate
     
     - Addons
         - title

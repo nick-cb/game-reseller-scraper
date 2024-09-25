@@ -64,6 +64,7 @@ COOKIES_ENABLED = False
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    "GameResellerScraper.pipelines.GameItemPipeline": 300,
+   "GameResellerScraper.pipelines.MysqlPipline": 310,
 }
 
 DOWNLOAD_HANDLERS = {
