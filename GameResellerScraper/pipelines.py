@@ -6,6 +6,7 @@
 
 # useful for handling different item types with a single interface
 
+from datetime import datetime
 from itemadapter.adapter import ItemAdapter
 from mysql.connector.abstracts import MySQLCursorAbstract
 from scrapy import Spider
@@ -41,7 +42,7 @@ class MysqlPipline:
             else:
                 print(err)
         else:
-            _ = self.cnx.close()
+            print("CONNECTED TO DATABASE")
 
     def process_item(self, item: GameItem, _: Spider):
         cursor = self.cnx.cursor()
@@ -52,7 +53,6 @@ class MysqlPipline:
             __ = self.cnx.close()
             return
 
-        self.insert_images(cursor, item, item_id)
         self.insert_images(cursor, item, item_id)
         self.insert_systems(cursor, item, item_id)
         self.insert_reviews(cursor, item, item_id)
@@ -65,8 +65,8 @@ class MysqlPipline:
     def insert_item(self, cursor: MySQLCursorAbstract, item: GameItem):
         add_item = (
             "INSERT INTO items "
-            "(title, ref_id, ref_namespace, developer_display_name, short_description, item_type, publisher_display_name, long_description, ref_slug, critic_avg, critic_rating, critic_recommend_pct, text, audio, sale_price, release_date) "
-            "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+            "(title, ref_id, ref_namespace, developer_display_name, short_description, item_type, publisher_display_name, long_description, ref_slug, critic_avg, critic_rating, critic_recommend_pct, text, audio, sale_price, release_date, avg_rating) "
+            "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
         )
         data_item = (
             item.get("title"),
@@ -84,7 +84,13 @@ class MysqlPipline:
             ",".join(item.get("supported_text") or []),
             ",".join(item.get("supported_audio") or []),
             (item.get("price") or {}).get("origin_price") or 0,
-            item.get("release_date"),
+            int(
+                datetime.strptime(
+                    item.get("release_date") or "2023-01-25T06:00:00.000Z", "%Y-%m-%dT%H:%M:%S.%fZ"
+                ).timestamp()
+                * 1000
+            ),
+            item.get("avg_rating"),
         )
         __ = cursor.execute(add_item, data_item)
 
@@ -130,7 +136,7 @@ class MysqlPipline:
         add_reviews = (
             "INSERT INTO reviews "
             "(author, body, outlet, earned_score, total_score, type, item_id, url) "
-            "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"
+            "VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
         )
         for review in item.get("critic_reviews") or []:
             review_data = (
@@ -152,8 +158,8 @@ class MysqlPipline:
     def insert_polls(self, cursor: MySQLCursorAbstract, item: GameItem, item_id: int):
         add_polls = (
             "INSERT INTO polls "
-            "(text, emoji, result_emoji, result_title, result_text, item_id, ref_id, ref_tag_id, ref_poll_definition_id) "
-            "VALUES (%s, %s, %s, %s, %s, %s)"
+            "(text, emoji, result_emoji, result_title, result_text, item_id, ref_id, ref_tag_id, ref_poll_definition_id, total) "
+            "VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
         )
         for poll in item.get("polls") or []:
             poll_data = (
@@ -166,5 +172,6 @@ class MysqlPipline:
                 poll.get("ref_id"),
                 poll.get("ref_tag_id"),
                 poll.get("ref_poll_definition_id"),
+                poll.get("total"),
             )
             __ = cursor.execute(add_polls, poll_data)

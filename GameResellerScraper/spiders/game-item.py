@@ -29,7 +29,7 @@ class GameResellerScraper(scrapy.Spider):
         # Refactor it so that we can swap different source (network, file)
 
         url: str = response.url.split("/")[-1]
-        queries = self.extract_queries_from_file()
+        queries = self.extract_queries(response, url)
         catalog_offer = self.extract_catalog_offer(queries=queries, url=url)
         product_home_config = self.extract_product_home_config(queries=queries, url=url)
         store_config = self.extract_store_config(
@@ -48,6 +48,7 @@ class GameResellerScraper(scrapy.Spider):
             publisher_display_name=catalog_offer.get("publisher_display_name"),
             tags=catalog_offer.get("tags"),
             price=catalog_offer.get("price"),
+            release_date=catalog_offer.get("release_date"),
             images=(catalog_offer.get("images") or [])
             + (product_home_config.get("images") or [])
             + (store_config.get("images") or []),
@@ -64,6 +65,7 @@ class GameResellerScraper(scrapy.Spider):
             critic_recommend_pct=egs_platform.get("critic_recommend_pct"),
             critic_reviews=egs_platform.get("critic_reviews"),
             polls=product_result.get("polls"),
+            avg_rating=product_result.get("avg_rating"),
         )
 
         yield item
@@ -114,7 +116,7 @@ class GameResellerScraper(scrapy.Spider):
             "ref_namespace": catalog_offer.get("namespace"),
             "developer_display_name": catalog_offer.get("developerDisplayName"),
             "short_description": catalog_offer.get("description"),
-            "game_type": catalog_offer.get("game_type"),
+            "game_type": catalog_offer.get("offerType"),
             "publisher_display_name": catalog_offer.get("publisherDisplayName"),
             "tags": list(
                 map(
@@ -134,7 +136,7 @@ class GameResellerScraper(scrapy.Spider):
                 "discount": get_nested(catalog_offer, "price.totalPrice.discount"),
             },
             "long_description": get_nested(catalog_offer, "longDescription"),
-            "releaseDate": get_nested(catalog_offer, "releaseDate"),
+            "release_date": get_nested(catalog_offer, "releaseDate"),
         }
 
         return item
@@ -218,6 +220,7 @@ class GameResellerScraper(scrapy.Spider):
                         {
                             "author": review.get("author"),
                             "body": review.get("body"),
+                            "outlet": review.get("outlet"),
                             "score": {
                                 "type": review.get("score").get("__typename"),
                                 "earned_score": review.get("score").get("earnedScore"),
@@ -236,9 +239,8 @@ class GameResellerScraper(scrapy.Spider):
             self.logger.warning(f"parse {url} -> not found getProductResult")
             return {}
 
-        poll_result: list[Any] = (
-            get_nested(query, "state.data.RatingsPolls.getProductResult.pollResult") or []
-        )
+        product_result = get_nested(query, "state.data.RatingsPolls.getProductResult") or {}
+        poll_result: list[Any] = get_nested(product_result, "pollResult") or []
         if not poll_result:
             self.logger.warning(f"parse {url} -> not found pollResult")
             return {}
@@ -258,7 +260,7 @@ class GameResellerScraper(scrapy.Spider):
             poll_result,
         )
 
-        return {"polls": list(polls)}
+        return {"polls": list(polls), "avg_rating": product_result.get("averageRating")}
 
     def extract_mapping_by_page_slug(self, queries: dict[Any, Any], url: str):
         self.logger.info(f"parse {url} -> extract getMappingByPageSlug")

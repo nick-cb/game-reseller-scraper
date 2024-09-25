@@ -7,7 +7,6 @@ from scrapy import signals
 
 # useful for handling different item types with a single interface
 from itemadapter import is_item, ItemAdapter
-from scrapy.http import Response
 
 
 class GameResellerScraperSpiderMiddleware:
@@ -79,7 +78,7 @@ class GameResellerScraperDownloaderMiddleware:
         # - or return a Request object
         # - or raise IgnoreRequest: process_exception() methods of
         #   installed downloader middleware will be called
-        return Response(url="https://store.epicgames.com/en-US/p/rain-world-4c860c")
+        return None
 
     def process_response(self, request, response, spider):
         # Called with the response returned from the downloader.
