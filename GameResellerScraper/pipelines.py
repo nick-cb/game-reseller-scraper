@@ -46,6 +46,8 @@ class MysqlPipline:
             print("CONNECTED TO DATABASE")
 
     def process_item(self, item: GameItem, _: Spider):
+        if not item:
+            return
         cursor = self.cnx.cursor()
         cursor = self.insert_item(cursor, item)
         item_id = cursor.lastrowid
@@ -56,10 +58,10 @@ class MysqlPipline:
 
         if "base_item" in item:
             self.insert_mapping(cursor, item, item_id)
-        # self.insert_images(cursor, item, item_id)
-        # self.insert_systems(cursor, item, item_id)
-        # self.insert_reviews(cursor, item, item_id)
-        # self.insert_polls(cursor, item, item_id)
+        self.insert_images(cursor, item, item_id)
+        self.insert_systems(cursor, item, item_id)
+        self.insert_reviews(cursor, item, item_id)
+        self.insert_polls(cursor, item, item_id)
 
         __ = self.cnx.commit()
         cursor.close()

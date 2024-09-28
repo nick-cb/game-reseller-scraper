@@ -9,6 +9,8 @@ from scrapy import Request, signals
 from itemadapter import is_item, ItemAdapter
 from scrapy.http import Response
 
+from GameResellerScraper.settings import IS_MOCK
+
 
 class GameResellerScraperSpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
@@ -79,7 +81,7 @@ class GameResellerScraperDownloaderMiddleware:
         # - or return a Request object
         # - or raise IgnoreRequest: process_exception() methods of
         #   installed downloader middleware will be called
-        return Response(url=request.url)
+        return IS_MOCK and Response(url=request.url) or None
 
     def process_response(self, request, response, spider):
         # Called with the response returned from the downloader.

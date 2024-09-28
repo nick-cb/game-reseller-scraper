@@ -32,3 +32,5 @@ class GameItem(scrapy.Item):
     critic_reviews = scrapy.Field()
     polls = scrapy.Field()
     base_item = scrapy.Field()
+    mappings = scrapy.Field()
+    url = scrapy.Field()
