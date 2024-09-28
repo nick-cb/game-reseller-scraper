@@ -3,10 +3,11 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-from scrapy import signals
+from scrapy import Request, signals
 
 # useful for handling different item types with a single interface
 from itemadapter import is_item, ItemAdapter
+from scrapy.http import Response
 
 
 class GameResellerScraperSpiderMiddleware:
@@ -68,7 +69,7 @@ class GameResellerScraperDownloaderMiddleware:
         crawler.signals.connect(s.spider_opened, signal=signals.spider_opened)
         return s
 
-    def process_request(self, request, spider):
+    def process_request(self, request: Request, spider):
         # Called for each request that goes through the downloader
         # middleware.
 
@@ -78,7 +79,7 @@ class GameResellerScraperDownloaderMiddleware:
         # - or return a Request object
         # - or raise IgnoreRequest: process_exception() methods of
         #   installed downloader middleware will be called
-        return None
+        return Response(url=request.url)
 
     def process_response(self, request, response, spider):
         # Called with the response returned from the downloader.

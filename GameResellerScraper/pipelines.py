@@ -7,6 +7,7 @@
 # useful for handling different item types with a single interface
 
 from datetime import datetime
+from typing import cast
 from itemadapter.adapter import ItemAdapter
 from mysql.connector.abstracts import MySQLCursorAbstract
 from scrapy import Spider
@@ -53,13 +54,17 @@ class MysqlPipline:
             __ = self.cnx.close()
             return
 
-        self.insert_images(cursor, item, item_id)
-        self.insert_systems(cursor, item, item_id)
-        self.insert_reviews(cursor, item, item_id)
-        self.insert_polls(cursor, item, item_id)
+        if "base_item" in item:
+            self.insert_mapping(cursor, item, item_id)
+        # self.insert_images(cursor, item, item_id)
+        # self.insert_systems(cursor, item, item_id)
+        # self.insert_reviews(cursor, item, item_id)
+        # self.insert_polls(cursor, item, item_id)
 
         __ = self.cnx.commit()
         cursor.close()
+
+    def close_spider(self, _: Spider):
         __ = self.cnx.close()
 
     def insert_item(self, cursor: MySQLCursorAbstract, item: GameItem):
@@ -84,11 +89,8 @@ class MysqlPipline:
             ",".join(item.get("supported_text") or []),
             ",".join(item.get("supported_audio") or []),
             (item.get("price") or {}).get("origin_price") or 0,
-            int(
-                datetime.strptime(
-                    item.get("release_date") or "2023-01-25T06:00:00.000Z", "%Y-%m-%dT%H:%M:%S.%fZ"
-                ).timestamp()
-                * 1000
+            datetime.strptime(
+                item.get("release_date") or "2023-01-25T06:00:00.000Z", "%Y-%m-%dT%H:%M:%S.%fZ"
             ),
             item.get("avg_rating"),
         )
@@ -175,3 +177,32 @@ class MysqlPipline:
                 poll.get("total"),
             )
             __ = cursor.execute(add_polls, poll_data)
+
+    def insert_mapping(self, cursor: MySQLCursorAbstract, item: GameItem, item_id: int):
+        add_mapping = "INSERT INTO item_mappings " + "(item_id, base_item_id)" + "VALUES (%s, %s)"
+        base_item = item.get("base_item")
+        if not base_item:
+            return
+        base_item_query = "SELECT ID from items WHERE title = %s AND ref_id = %s AND ref_namespace = %s ORDER BY created_at DESC"
+        base_item_query_data = (
+            base_item.get("title"),
+            base_item.get("ref_id"),
+            base_item.get("ref_namespace"),
+        )
+        __ = cursor.execute(base_item_query, base_item_query_data)
+        rows = cursor.fetchall()
+
+        row = rows[0]
+        if not row:
+            return
+
+        base_item_id: int = -1
+        if type(row) == tuple:
+            print(row)
+            base_item_id = cast(int, row[0])
+
+        if type(row) == dict:
+            base_item_id = cast(int, row.get("ID"))
+
+        mapping_data = (item_id, base_item_id)
+        __ = cursor.execute(add_mapping, mapping_data)

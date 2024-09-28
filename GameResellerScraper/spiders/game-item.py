@@ -29,7 +29,7 @@ class GameResellerScraper(scrapy.Spider):
         # Refactor it so that we can swap different source (network, file)
 
         url: str = response.url.split("/")[-1]
-        queries = self.extract_queries(response, url)
+        queries = self.extract_queries_from_file(url)
         catalog_offer = self.extract_catalog_offer(queries=queries, url=url)
         product_home_config = self.extract_product_home_config(queries=queries, url=url)
         store_config = self.extract_store_config(
@@ -66,12 +66,13 @@ class GameResellerScraper(scrapy.Spider):
             critic_reviews=egs_platform.get("critic_reviews"),
             polls=product_result.get("polls"),
             avg_rating=product_result.get("avg_rating"),
+            base_item=response.request and response.request.cb_kwargs.get("item") or None,
         )
 
         yield item
-        # yield self.next_request(catalog_offer["mappings"], url)
+        yield from self.next_request(catalog_offer["mappings"], url, item)
 
-    def next_request(self, mappings: list[Any], url: str):
+    def next_request(self, mappings: list[Any], url: str, item: GameItem):
         for mapping in mappings:
             if mapping["pageSlug"] and mapping["pageSlug"] not in self.scrapped_slugs:
                 self.slugs.append(mapping["pageSlug"])
@@ -93,11 +94,13 @@ class GameResellerScraper(scrapy.Spider):
                     "Upgrade-Insecure-Requests": "1",
                     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:130.0) Gecko/20100101 Firefox/130.0",
                 }
-                return scrapy.Request(
+                cb_kwargs: dict[Any, Any] = {"item": item}
+                yield scrapy.Request(
                     url=f"{self.host}{mapping['pageSlug']}",
                     headers=headers,
                     callback=self.parse,
                     meta={"playwright": True},
+                    cb_kwargs=cb_kwargs,
                 )
 
     def extract_catalog_offer(self, queries: dict[Any, Any], url: str):
@@ -293,12 +296,11 @@ class GameResellerScraper(scrapy.Spider):
 
         return queries
 
-    def extract_queries_from_file(self):
-        filename = "GameResellerScraper/test/rain-world-4c860c" + ".json"
+    def extract_queries_from_file(self, url: str):
+        filename = "GameResellerScraper/test/" + url + ".json"
         p = Path(os.getcwd()) / filename
-        print(p)
         if not p.exists():
-            self.logger.error(f"parse {'rain-world-4c860c'} -> building item -> not found file", p)
+            self.logger.error(f"parse {url} -> building item -> not found file", p)
             return cast(dict[Any, Any], {})
 
         text = p.read_text()

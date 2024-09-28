@@ -1,0 +1,1914 @@
+{
+                "mutations": [],
+                "queries": [{
+                    "state": {
+                        "data": "unknown",
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339164,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": "launcherVersion",
+                    "queryHash": "[\"launcherVersion\"]"
+                }, {
+                    "state": {
+                        "data": {
+                            "StorePageMapping": {
+                                "mapping": {
+                                    "pageSlug": "rain-world-downpour-a3ccfb",
+                                    "pageType": "offer",
+                                    "sandboxId": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                    "productId": "da2d8e4b946b4b50b1ad818727469873",
+                                    "createdDate": "2023-01-25T19:25:42.445Z",
+                                    "updatedDate": "2023-01-26T18:08:03.568Z",
+                                    "mappings": {
+                                        "cmsSlug": null,
+                                        "offerId": "3487371f265643138278190f2a57fc0c",
+                                        "offer": {
+                                            "id": "3487371f265643138278190f2a57fc0c",
+                                            "namespace": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                            "effectiveDate": "2023-01-25T06:00:00.000Z",
+                                            "expiryDate": null
+                                        },
+                                        "prePurchaseOfferId": null,
+                                        "prePurchaseOffer": null,
+                                        "pageId": null
+                                    }
+                                }
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339235,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["getMappingByPageSlug", ["locale", "en-US"], ["pageSlug", "rain-world-downpour-a3ccfb"], ["sandboxId", null], "781fd69ec8116125fa8dc245c0838198cdf5283e31647d08dfa27f45ee8b1f30"],
+                    "queryHash": "[\"getMappingByPageSlug\",[\"locale\",\"en-US\"],[\"pageSlug\",\"rain-world-downpour-a3ccfb\"],[\"sandboxId\",null],\"781fd69ec8116125fa8dc245c0838198cdf5283e31647d08dfa27f45ee8b1f30\"]"
+                }, {
+                    "state": {
+                        "data": {
+                            "Catalog": {
+                                "catalogOffer": {
+                                    "title": "Rain World: Downpour",
+                                    "id": "3487371f265643138278190f2a57fc0c",
+                                    "namespace": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                    "countriesBlacklist": ["KR"],
+                                    "countriesWhitelist": null,
+                                    "developerDisplayName": "Videocult",
+                                    "description": "Downpour is a DLC expansion of Rain World. Take control of five new characters with new abilities in this vast redefined world. Slugcats have adapted to the harsh conditions alongside evolved predators! Survive new environmental conditions, dangers and explore uncharted territory",
+                                    "effectiveDate": "2023-01-25T06:00:00.000Z",
+                                    "expiryDate": null,
+                                    "viewableDate": "2023-01-25T06:00:00.000Z",
+                                    "allowPurchaseForPartialOwned": true,
+                                    "offerType": "ADD_ON",
+                                    "externalLinks": null,
+                                    "isCodeRedemptionOnly": false,
+                                    "keyImages": [{
+                                        "type": "OfferImageWide",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1252y.jpg"
+                                    }, {
+                                        "type": "OfferImageTall",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-fwlyr.png"
+                                    }, {
+                                        "type": "Thumbnail",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-fwlyr.png"
+                                    }, {
+                                        "type": "heroCarouselVideo",
+                                        "url": "com.epicgames.video:\u002F\u002F30c90771-6eb5-4195-a1a8-efd53e88be4d?cover=https%3A%2F%2Fcdn1.epicgames.com%2Fspt-assets%2Fda2d8e4b946b4b50b1ad818727469873%2Frain-world-video-ec8wh.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1kfdx.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-19d06.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1nzpn.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1ofes.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1bbpy.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-936xm.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-19xo6.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-glgp7.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1nqja.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1f9tp.png"
+                                    }],
+                                    "longDescription": "\u003C!--textBlock--\u003E\n\u003C!--title--\u003E\n# Feature List\n\u003C!--text--\u003E\n- Breaking New Ground to Explore - With ten expansive regions across thousands of new maps, environments, and weather to survive and discover \n\n- Five Additional Characters - All with unique abilities, skillsets, gameplay style, and stories\n\n- Challenge Mode - Put your survivability to the test in multiple pre-constructed arena scenarios, adapting to each room as the difficulty increases\n\n- Safari Mode -  Observe an ecosystem unfold! Revisit areas once explored safely through the eyes of an observer - control and play as other creatures in the game to influence the scene.\n\n\u003C!--textBlock--\u003E\n\u003C!--text--\u003E\nRain World: Downpour is a DLC expansion of Rain World. Take control of five new characters with new abilities in this vast, redefined world. Slugcats have adapted to the harsh conditions alongside evolved predators! Survive new environmental conditions, dangers and explore uncharted territory.\n\n\"Return to the unwavering wild in Downpour, where you explore new, harsh lands and survive new predators. As time passed, the slugcat has evolved. With five variants of the species - take advantage of various skills that they possess and explore their own personal tales.\n\n**Characters:**\n\n\u003C!--image--\u003E\n![Rain World-1dw7e](https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1dw7e.gif)\n\n\u003C!--textBlock--\u003E\n\u003C!--title--\u003E\n# The Rivulet\n\u003C!--text--\u003E\nAn aquatic evolved slugcat - it breathes longer underwater and moves through the world with ease.\n\n\u003C!--image--\u003E\n![Rain World-iod26](https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-iod26.gif)\n\n\u003C!--textBlock--\u003E\n\u003C!--title--\u003E\n# The Gourmand\n\u003C!--text--\u003E\nAn indulger of the simpler pleasures in life. A culinary expert that excels in manipulating the objects it finds along its journey.\n\n\u003C!--image--\u003E\n![Rain World-1kqwz](https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1kqwz.gif)\n\n\u003C!--textBlock--\u003E\n\u003C!--title--\u003E\n# The Artificer\n\u003C!--text--\u003E\nA fierce combatant; master of pyrotechnics and explosives.\n\n\u003C!--image--\u003E\n![Rain World-1ew0f](https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1ew0f.gif)\n\n\u003C!--textBlock--\u003E\n\u003C!--title--\u003E\n# The Spearmaster\n\u003C!--text--\u003E\nAn abnormality with no mouth that uses needles pulled from its body for combat and to feed.\n\n\u003C!--image--\u003E\n![Rain World-1aelb](https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1aelb.gif)\n\n\u003C!--textBlock--\u003E\n\u003C!--title--\u003E\n# The Saint\n\u003C!--text--\u003E\nAttuned to the etheric plane, this slugcat uses no weapons but instead uses its long tongue to grip far away objects or platforms.\n\nThe expansion also includes challenging one-time scenarios, a randomizer featuring complex quests to complete, and local co-op support! For players looking test their limits in Challenge Mode or players looking for a chill experience in Safari Mode, Rain World: Downpour features something new for every player! Optional additional mechanical additions allow for a new spin on the Rain World experience – tutorialized hints, alternate routing options, a new map system, handy collectibles tracker for storyline completion, and many more.\n",
+                                    "seller": {
+                                        "id": "o-vzv8n7jse99sluj4vaa8522rh45cvg",
+                                        "name": "Akupara Games"
+                                    },
+                                    "productSlug": null,
+                                    "publisherDisplayName": "Akupara Games",
+                                    "releaseDate": "2023-01-25T06:00:00.000Z",
+                                    "urlSlug": "downpour",
+                                    "url": null,
+                                    "tags": [{
+                                        "id": "1080",
+                                        "name": "Survival",
+                                        "groupName": "genre"
+                                    }, {
+                                        "id": "1370",
+                                        "name": "Single Player",
+                                        "groupName": "feature"
+                                    }, {
+                                        "id": "9547",
+                                        "name": "Windows",
+                                        "groupName": "platform"
+                                    }, {
+                                        "id": "1117",
+                                        "name": "Adventure",
+                                        "groupName": "genre"
+                                    }, {
+                                        "id": "9549",
+                                        "name": "Controller Support",
+                                        "groupName": "feature"
+                                    }, {
+                                        "id": "1151",
+                                        "name": "Platformer",
+                                        "groupName": "genre"
+                                    }],
+                                    "items": [{
+                                        "id": "8e9bd28f95ca41f7a586dbc05c0ec22d",
+                                        "namespace": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                        "releaseInfo": null
+                                    }],
+                                    "customAttributes": [{
+                                        "key": "isManuallySetRefundableType",
+                                        "value": "true"
+                                    }, {
+                                        "key": "autoGeneratedPrice",
+                                        "value": "false"
+                                    }, {
+                                        "key": "isManuallySetViewableDate",
+                                        "value": "false"
+                                    }, {
+                                        "key": "isManuallySetPCReleaseDate",
+                                        "value": "true"
+                                    }, {
+                                        "key": "isBlockchainUsed",
+                                        "value": "false"
+                                    }],
+                                    "categories": [{
+                                        "path": "addons"
+                                    }, {
+                                        "path": "addons\u002Fdurable"
+                                    }],
+                                    "catalogNs": {
+                                        "parent": "da2d8e4b946b4b50b1ad818727469873",
+                                        "displayName": "Live",
+                                        "mappings": [{
+                                            "createdDate": "2023-01-25T19:25:42.445Z",
+                                            "deletedDate": null,
+                                            "mappings": {
+                                                "cmsSlug": null,
+                                                "offerId": "1efa9febbd9744caab24276d9c273862",
+                                                "prePurchaseOfferId": null
+                                            },
+                                            "pageSlug": "rain-world-4c860c",
+                                            "pageType": "productHome",
+                                            "productId": "da2d8e4b946b4b50b1ad818727469873",
+                                            "sandboxId": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                            "updatedDate": "2023-01-26T18:08:03.568Z"
+                                        }, {
+                                            "createdDate": "2023-01-25T19:25:42.445Z",
+                                            "deletedDate": null,
+                                            "mappings": {
+                                                "cmsSlug": null,
+                                                "offerId": "3487371f265643138278190f2a57fc0c",
+                                                "prePurchaseOfferId": null
+                                            },
+                                            "pageSlug": "rain-world-downpour-a3ccfb",
+                                            "pageType": "offer",
+                                            "productId": "da2d8e4b946b4b50b1ad818727469873",
+                                            "sandboxId": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                            "updatedDate": "2023-01-26T18:08:03.568Z"
+                                        }],
+                                        "store": "EGS"
+                                    },
+                                    "offerMappings": [{
+                                        "createdDate": "2023-01-25T19:25:42.445Z",
+                                        "deletedDate": null,
+                                        "mappings": {
+                                            "cmsSlug": null
+                                        },
+                                        "pageSlug": "rain-world-downpour-a3ccfb",
+                                        "pageType": "offer",
+                                        "productId": "da2d8e4b946b4b50b1ad818727469873",
+                                        "sandboxId": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                        "updatedDate": "2023-01-26T18:08:03.568Z"
+                                    }],
+                                    "pcReleaseDate": "2023-01-19T17:00:00.000Z",
+                                    "prePurchase": null,
+                                    "approximateReleasePlan": null,
+                                    "price": {
+                                        "totalPrice": {
+                                            "discountPrice": 157000,
+                                            "originalPrice": 157000,
+                                            "voucherDiscount": 0,
+                                            "discount": 0,
+                                            "currencyCode": "VND",
+                                            "currencyInfo": {
+                                                "decimals": 0
+                                            },
+                                            "fmtPrice": {
+                                                "originalPrice": "₫157,000",
+                                                "discountPrice": "₫157,000",
+                                                "intermediatePrice": "₫157,000"
+                                            }
+                                        },
+                                        "lineOffers": [{
+                                            "appliedRules": []
+                                        }],
+                                        "priceDetails": {
+                                            "promotions": []
+                                        }
+                                    },
+                                    "allDependNsOfferIds": null,
+                                    "majorNsOffers": [],
+                                    "subNsOffers": [],
+                                    "status": "ACTIVE",
+                                    "refundType": "REFUNDABLE"
+                                }
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339286,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["getCatalogOffer", ["country", "VN"], ["locale", "en-US"], ["offerId", "3487371f265643138278190f2a57fc0c"], ["sandboxId", "c8b495f1a9a34972ba0b0c46e8afec31"], "abafd6e0aa80535c43676f533f0283c7f5214a59e9fae6ebfb37bed1b1bb2e9b"],
+                    "queryHash": "[\"getCatalogOffer\",[\"country\",\"VN\"],[\"locale\",\"en-US\"],[\"offerId\",\"3487371f265643138278190f2a57fc0c\"],[\"sandboxId\",\"c8b495f1a9a34972ba0b0c46e8afec31\"],\"abafd6e0aa80535c43676f533f0283c7f5214a59e9fae6ebfb37bed1b1bb2e9b\"]"
+                }, {
+                    "state": {
+                        "data": {
+                            "Product": {
+                                "sandbox": {
+                                    "configuration": [{
+                                        "configs": {
+                                            "banner": null,
+                                            "developerDisplayName": "Videocult",
+                                            "effectiveDate": null,
+                                            "externalPlatformLaunchOptions": null,
+                                            "gameWebsite": null,
+                                            "keyImages": [{
+                                                "type": "ProductLogo",
+                                                "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-logo-1whaj.png",
+                                                "alt": "-"
+                                            }],
+                                            "legalText": "© 2017-2022 Videocult",
+                                            "pcReleaseDate": null,
+                                            "productDisplayName": "Rain World",
+                                            "privacyLink": "https:\u002F\u002Fwww.akuparagames.com\u002Fprivacy-policy\u002F",
+                                            "publisherDisplayName": "Akupara Games",
+                                            "shortDescription": "You are a nomadic slugcat, both predator and prey in a broken ecosystem. Grab your spear and brave the industrial wastes, hunting enough food to survive, but be wary— other, bigger creatures have the same plan... and slugcats look delicious.",
+                                            "socialLinks": [{
+                                                "platform": "homepage",
+                                                "url": "https:\u002F\u002Frainworldgame.com\u002F"
+                                            }, {
+                                                "platform": "twitter",
+                                                "url": "https:\u002F\u002Ftwitter.com\u002FRainWorldGame"
+                                            }, {
+                                                "platform": "facebook",
+                                                "url": "https:\u002F\u002Fwww.facebook.com\u002FRainWorldGame\u002F"
+                                            }, {
+                                                "platform": "instagram",
+                                                "url": "https:\u002F\u002Fwww.instagram.com\u002Fakuparagames\u002F?hl=en"
+                                            }, {
+                                                "platform": "discord",
+                                                "url": "https:\u002F\u002Fdiscord.com\u002Finvite\u002Frainworld"
+                                            }],
+                                            "supportedAudio": [],
+                                            "supportedText": ["English", "Italian", "Spanish (Spain)", "Portuguese", "French", "German"],
+                                            "tags": [{
+                                                "id": "1151",
+                                                "name": "Platformer",
+                                                "groupName": "genre"
+                                            }, {
+                                                "id": "1080",
+                                                "name": "Survival",
+                                                "groupName": "genre"
+                                            }, {
+                                                "id": "1117",
+                                                "name": "Adventure",
+                                                "groupName": "genre"
+                                            }, {
+                                                "id": "1370",
+                                                "name": "Single Player",
+                                                "groupName": "feature"
+                                            }, {
+                                                "id": "9549",
+                                                "name": "Controller Support",
+                                                "groupName": "feature"
+                                            }, {
+                                                "id": "9547",
+                                                "name": "Windows",
+                                                "groupName": "platform"
+                                            }],
+                                            "technicalRequirements": {
+                                                "macos": null,
+                                                "windows": [{
+                                                    "minimum": "Windows 7, 64-bit",
+                                                    "recommended": "Windows 7, 64-bit",
+                                                    "title": "OS version"
+                                                }, {
+                                                    "minimum": "Dual Core 2.4GHz",
+                                                    "recommended": "Dual Core 2.4GHz",
+                                                    "title": "CPU"
+                                                }, {
+                                                    "minimum": "2GB RAM",
+                                                    "recommended": "2GB RAM",
+                                                    "title": "Memory"
+                                                }, {
+                                                    "minimum": "Dedicated Graphics",
+                                                    "recommended": "Dedicated Graphics",
+                                                    "title": "GPU"
+                                                }]
+                                            },
+                                            "theme": {
+                                                "dark": {
+                                                    "accent": "#0074E4",
+                                                    "theme": "gray"
+                                                },
+                                                "light": {
+                                                    "accent": "#0074E4",
+                                                    "theme": "gray"
+                                                },
+                                                "preferredMode": "dark"
+                                            },
+                                            "loginRequirements": null
+                                        }
+                                    }, {}]
+                                }
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339359,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["getStoreConfig", ["locale", "en-US"], ["sandboxId", "c8b495f1a9a34972ba0b0c46e8afec31"], "0247771a057e44ee16627574296ad79fd48e41b4cb056465515a54ade05aa7f2"],
+                    "queryHash": "[\"getStoreConfig\",[\"locale\",\"en-US\"],[\"sandboxId\",\"c8b495f1a9a34972ba0b0c46e8afec31\"],\"0247771a057e44ee16627574296ad79fd48e41b4cb056465515a54ade05aa7f2\"]"
+                }, {
+                    "state": {
+                        "data": {
+                            "Catalog": {
+                                "catalogOffers": {
+                                    "elements": [{
+                                        "id": "1efa9febbd9744caab24276d9c273862",
+                                        "countriesBlacklist": ["KR"],
+                                        "countriesWhitelist": null,
+                                        "customAttributes": [{
+                                            "key": "autoGeneratedPrice",
+                                            "value": "false"
+                                        }, {
+                                            "key": "isManuallySetViewableDate",
+                                            "value": "false"
+                                        }, {
+                                            "key": "isManuallySetPCReleaseDate",
+                                            "value": "true"
+                                        }, {
+                                            "key": "isBlockchainUsed",
+                                            "value": "false"
+                                        }],
+                                        "isCodeRedemptionOnly": false,
+                                        "prePurchase": null
+                                    }],
+                                    "paging": {
+                                        "total": 1
+                                    }
+                                }
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339514,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["getRelatedOfferIdsByCategory", ["allowCountries", "VN"], ["category", "games\u002Fedition\u002Fbase|software\u002Fedition\u002Fbase"], ["codeRedemptionOnly", "false"], ["country", "VN"], ["locale", "en-US"], ["namespace", "c8b495f1a9a34972ba0b0c46e8afec31"], ["sortBy", "releaseDate"], ["sortDir", "DESC"], "ff4dea7ebf14b25dc1cbedffe1d90620318a7bffea481fea02ac6e87310326f4"],
+                    "queryHash": "[\"getRelatedOfferIdsByCategory\",[\"allowCountries\",\"VN\"],[\"category\",\"games\u002Fedition\u002Fbase|software\u002Fedition\u002Fbase\"],[\"codeRedemptionOnly\",\"false\"],[\"country\",\"VN\"],[\"locale\",\"en-US\"],[\"namespace\",\"c8b495f1a9a34972ba0b0c46e8afec31\"],[\"sortBy\",\"releaseDate\"],[\"sortDir\",\"DESC\"],\"ff4dea7ebf14b25dc1cbedffe1d90620318a7bffea481fea02ac6e87310326f4\"]"
+                }, {
+                    "state": {
+                        "data": {
+                            "__typename": "AgeRating",
+                            "ageGate": {
+                                "gate": "no-gate"
+                            },
+                            "ageRating": {
+                                "ageControl": 7,
+                                "contentDescriptors": ["Mild Violence"],
+                                "interactiveElements": [],
+                                "ratingImage": "https:\u002F\u002Fcdn1.epicgames.com\u002FgameRating\u002FgameRating\u002FGeneric_7_192_192x192-e6feaa41dfb171d1ee47d82d2a2e7d12",
+                                "ratingSystem": "Generic",
+                                "title": "7+"
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339368,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["egs-platform", "\u002Fapi\u002Fv1\u002Fegs\u002Fproducts\u002Fda2d8e4b946b4b50b1ad818727469873\u002Foffers\u002F3487371f265643138278190f2a57fc0c\u002Fage-rating", "{\"country\":\"VN\",\"locale\":\"en-US\",\"store\":\"EGS\"}"],
+                    "queryHash": "[\"egs-platform\",\"\u002Fapi\u002Fv1\u002Fegs\u002Fproducts\u002Fda2d8e4b946b4b50b1ad818727469873\u002Foffers\u002F3487371f265643138278190f2a57fc0c\u002Fage-rating\",\"{\\\"country\\\":\\\"VN\\\",\\\"locale\\\":\\\"en-US\\\",\\\"store\\\":\\\"EGS\\\"}\"]"
+                }, {
+                    "state": {
+                        "data": {
+                            "__typename": "Product",
+                            "branding": {
+                                "dark": {
+                                    "accentColor": "#0074E4",
+                                    "brandColor": "gray"
+                                },
+                                "light": {
+                                    "accentColor": "#0074E4",
+                                    "brandColor": "gray"
+                                },
+                                "preferredMode": "dark"
+                            },
+                            "developers": ["Videocult"],
+                            "id": "da2d8e4b946b4b50b1ad818727469873",
+                            "mapping": {
+                                "__typename": "InternalMapping",
+                                "slug": "rain-world-4c860c"
+                            },
+                            "media": {
+                                "card16x9": {
+                                    "altText": "Rain World Offer",
+                                    "imageSrc": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1j3hz.png"
+                                },
+                                "card3x4": {
+                                    "altText": "Download Rain World Offer",
+                                    "imageSrc": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-28tjl.png"
+                                },
+                                "logo": {
+                                    "altText": "-",
+                                    "imageSrc": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-logo-1whaj.png"
+                                }
+                            },
+                            "publishers": ["Akupara Games"],
+                            "shortDescription": "You are a nomadic slugcat, both predator and prey in a broken ecosystem. Grab your spear and brave the industrial wastes, hunting enough food to survive, but be wary— other, bigger creatures have the same plan... and slugcats look delicious.",
+                            "supportedModules": {
+                                "addOns": true,
+                                "criticReviews": {
+                                    "openCritic": true
+                                },
+                                "editions": false,
+                                "experiences": false,
+                                "mods": "Unsupported"
+                            },
+                            "tags": {
+                                "accessibility": [],
+                                "epicFeatures": [],
+                                "events": [],
+                                "features": [{
+                                    "id": "9549",
+                                    "name": "Controller Support"
+                                }, {
+                                    "id": "1370",
+                                    "name": "Single Player"
+                                }],
+                                "genres": [{
+                                    "id": "1117",
+                                    "name": "Adventure"
+                                }, {
+                                    "id": "1151",
+                                    "name": "Platformer"
+                                }, {
+                                    "id": "1080",
+                                    "name": "Survival"
+                                }],
+                                "platforms": [{
+                                    "id": "9547",
+                                    "name": "Windows"
+                                }],
+                                "usersSay": []
+                            },
+                            "title": "Rain World"
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339370,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["egs-platform", "\u002Fapi\u002Fv1\u002Fegs\u002Fproducts\u002Fda2d8e4b946b4b50b1ad818727469873", "{\"country\":\"VN\",\"locale\":\"en-US\",\"store\":\"EGS\"}"],
+                    "queryHash": "[\"egs-platform\",\"\u002Fapi\u002Fv1\u002Fegs\u002Fproducts\u002Fda2d8e4b946b4b50b1ad818727469873\",\"{\\\"country\\\":\\\"VN\\\",\\\"locale\\\":\\\"en-US\\\",\\\"store\\\":\\\"EGS\\\"}\"]"
+                }, {
+                    "state": {
+                        "data": {
+                            "Achievement": {
+                                "productAchievementsRecordBySandbox": {
+                                    "productId": "da2d8e4b946b4b50b1ad818727469873",
+                                    "sandboxId": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                    "totalAchievements": 0,
+                                    "totalProductXP": 0,
+                                    "achievementSets": [{
+                                        "achievementSetId": "91eh5jd",
+                                        "isBase": true,
+                                        "numProgressed": 0,
+                                        "numCompleted": 0,
+                                        "totalAchievements": 0,
+                                        "totalXP": 0
+                                    }],
+                                    "platinumRarity": {
+                                        "percent": 0
+                                    },
+                                    "achievements": []
+                                }
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339406,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["Achievement", ["locale", "en-US"], ["sandboxId", "c8b495f1a9a34972ba0b0c46e8afec31"], "7d54399ad8b8b5538bc2d93ee66b07014432b5488945cda35fe0b1fc70eea83a"],
+                    "queryHash": "[\"Achievement\",[\"locale\",\"en-US\"],[\"sandboxId\",\"c8b495f1a9a34972ba0b0c46e8afec31\"],\"7d54399ad8b8b5538bc2d93ee66b07014432b5488945cda35fe0b1fc70eea83a\"]"
+                }, {
+                    "state": {
+                        "data": {
+                            "Catalog": {
+                                "catalogOffers": {
+                                    "elements": [{
+                                        "id": "3487371f265643138278190f2a57fc0c",
+                                        "countriesBlacklist": ["KR"],
+                                        "countriesWhitelist": null,
+                                        "customAttributes": [{
+                                            "key": "isManuallySetRefundableType",
+                                            "value": "true"
+                                        }, {
+                                            "key": "autoGeneratedPrice",
+                                            "value": "false"
+                                        }, {
+                                            "key": "isManuallySetViewableDate",
+                                            "value": "false"
+                                        }, {
+                                            "key": "isManuallySetPCReleaseDate",
+                                            "value": "true"
+                                        }, {
+                                            "key": "isBlockchainUsed",
+                                            "value": "false"
+                                        }],
+                                        "isCodeRedemptionOnly": false,
+                                        "prePurchase": null
+                                    }],
+                                    "paging": {
+                                        "total": 1
+                                    }
+                                }
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339431,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["getRelatedOfferIdsByCategory", ["allowCountries", "VN"], ["category", "addons|digitalextras"], ["codeRedemptionOnly", "false"], ["country", "VN"], ["locale", "en-US"], ["namespace", "c8b495f1a9a34972ba0b0c46e8afec31"], ["sortBy", "releaseDate"], ["sortDir", "DESC"], "ff4dea7ebf14b25dc1cbedffe1d90620318a7bffea481fea02ac6e87310326f4"],
+                    "queryHash": "[\"getRelatedOfferIdsByCategory\",[\"allowCountries\",\"VN\"],[\"category\",\"addons|digitalextras\"],[\"codeRedemptionOnly\",\"false\"],[\"country\",\"VN\"],[\"locale\",\"en-US\"],[\"namespace\",\"c8b495f1a9a34972ba0b0c46e8afec31\"],[\"sortBy\",\"releaseDate\"],[\"sortDir\",\"DESC\"],\"ff4dea7ebf14b25dc1cbedffe1d90620318a7bffea481fea02ac6e87310326f4\"]"
+                }, {
+                    "state": {
+                        "data": {
+                            "Catalog": {
+                                "catalogNs": {
+                                    "displayName": "Live",
+                                    "mappings": [{
+                                        "createdDate": "2023-01-25T19:25:42.445Z",
+                                        "deletedDate": null,
+                                        "mappings": {
+                                            "cmsSlug": null,
+                                            "offerId": "1efa9febbd9744caab24276d9c273862",
+                                            "prePurchaseOfferId": null
+                                        },
+                                        "pageSlug": "rain-world-4c860c",
+                                        "pageType": "productHome",
+                                        "productId": "da2d8e4b946b4b50b1ad818727469873",
+                                        "sandboxId": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                        "updatedDate": "2023-01-26T18:08:03.568Z"
+                                    }, {
+                                        "createdDate": "2023-01-25T19:25:42.445Z",
+                                        "deletedDate": null,
+                                        "mappings": {
+                                            "cmsSlug": null,
+                                            "offerId": "3487371f265643138278190f2a57fc0c",
+                                            "prePurchaseOfferId": null
+                                        },
+                                        "pageSlug": "rain-world-downpour-a3ccfb",
+                                        "pageType": "offer",
+                                        "productId": "da2d8e4b946b4b50b1ad818727469873",
+                                        "sandboxId": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                        "updatedDate": "2023-01-26T18:08:03.568Z"
+                                    }],
+                                    "store": "EGS"
+                                }
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339456,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["getCatalogNamespace", ["sandboxId", "c8b495f1a9a34972ba0b0c46e8afec31"], "a2d8bbd2309340d295d9ca7b3f98097e951bcde75d2aab988a827047c7343cc9"],
+                    "queryHash": "[\"getCatalogNamespace\",[\"sandboxId\",\"c8b495f1a9a34972ba0b0c46e8afec31\"],\"a2d8bbd2309340d295d9ca7b3f98097e951bcde75d2aab988a827047c7343cc9\"]"
+                }, {
+                    "state": {
+                        "data": {
+                            "Catalog": {
+                                "catalogOffers": {
+                                    "elements": [{
+                                        "id": "1efa9febbd9744caab24276d9c273862",
+                                        "countriesBlacklist": ["KR"],
+                                        "countriesWhitelist": null,
+                                        "customAttributes": [{
+                                            "key": "autoGeneratedPrice",
+                                            "value": "false"
+                                        }, {
+                                            "key": "isManuallySetViewableDate",
+                                            "value": "false"
+                                        }, {
+                                            "key": "isManuallySetPCReleaseDate",
+                                            "value": "true"
+                                        }, {
+                                            "key": "isBlockchainUsed",
+                                            "value": "false"
+                                        }],
+                                        "isCodeRedemptionOnly": false,
+                                        "prePurchase": null
+                                    }],
+                                    "paging": {
+                                        "total": 1
+                                    }
+                                }
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339907,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["getRelatedOfferIdsByCategory", ["allowCountries", "VN"], ["category", "games\u002Fedition|games\u002Fdemo|games\u002Ftrial|software\u002Fedition"], ["codeRedemptionOnly", "false"], ["country", "VN"], ["locale", "en-US"], ["namespace", "c8b495f1a9a34972ba0b0c46e8afec31"], ["sortBy", "releaseDate"], ["sortDir", "DESC"], "ff4dea7ebf14b25dc1cbedffe1d90620318a7bffea481fea02ac6e87310326f4"],
+                    "queryHash": "[\"getRelatedOfferIdsByCategory\",[\"allowCountries\",\"VN\"],[\"category\",\"games\u002Fedition|games\u002Fdemo|games\u002Ftrial|software\u002Fedition\"],[\"codeRedemptionOnly\",\"false\"],[\"country\",\"VN\"],[\"locale\",\"en-US\"],[\"namespace\",\"c8b495f1a9a34972ba0b0c46e8afec31\"],[\"sortBy\",\"releaseDate\"],[\"sortDir\",\"DESC\"],\"ff4dea7ebf14b25dc1cbedffe1d90620318a7bffea481fea02ac6e87310326f4\"]"
+                }, {
+                    "state": {
+                        "data": [{
+                            "Catalog": {
+                                "catalogOffer": {
+                                    "title": "Rain World: Downpour",
+                                    "id": "3487371f265643138278190f2a57fc0c",
+                                    "namespace": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                    "countriesBlacklist": ["KR"],
+                                    "countriesWhitelist": null,
+                                    "developerDisplayName": "Videocult",
+                                    "description": "Downpour is a DLC expansion of Rain World. Take control of five new characters with new abilities in this vast redefined world. Slugcats have adapted to the harsh conditions alongside evolved predators! Survive new environmental conditions, dangers and explore uncharted territory",
+                                    "effectiveDate": "2023-01-25T06:00:00.000Z",
+                                    "expiryDate": null,
+                                    "viewableDate": "2023-01-25T06:00:00.000Z",
+                                    "allowPurchaseForPartialOwned": true,
+                                    "offerType": "ADD_ON",
+                                    "externalLinks": null,
+                                    "isCodeRedemptionOnly": false,
+                                    "keyImages": [{
+                                        "type": "OfferImageWide",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1252y.jpg"
+                                    }, {
+                                        "type": "OfferImageTall",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-fwlyr.png"
+                                    }, {
+                                        "type": "Thumbnail",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-fwlyr.png"
+                                    }, {
+                                        "type": "heroCarouselVideo",
+                                        "url": "com.epicgames.video:\u002F\u002F30c90771-6eb5-4195-a1a8-efd53e88be4d?cover=https%3A%2F%2Fcdn1.epicgames.com%2Fspt-assets%2Fda2d8e4b946b4b50b1ad818727469873%2Frain-world-video-ec8wh.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1kfdx.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-19d06.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1nzpn.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1ofes.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1bbpy.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-936xm.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-19xo6.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-glgp7.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1nqja.png"
+                                    }, {
+                                        "type": "featuredMedia",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1f9tp.png"
+                                    }],
+                                    "longDescription": "\u003C!--textBlock--\u003E\n\u003C!--title--\u003E\n# Feature List\n\u003C!--text--\u003E\n- Breaking New Ground to Explore - With ten expansive regions across thousands of new maps, environments, and weather to survive and discover \n\n- Five Additional Characters - All with unique abilities, skillsets, gameplay style, and stories\n\n- Challenge Mode - Put your survivability to the test in multiple pre-constructed arena scenarios, adapting to each room as the difficulty increases\n\n- Safari Mode -  Observe an ecosystem unfold! Revisit areas once explored safely through the eyes of an observer - control and play as other creatures in the game to influence the scene.\n\n\u003C!--textBlock--\u003E\n\u003C!--text--\u003E\nRain World: Downpour is a DLC expansion of Rain World. Take control of five new characters with new abilities in this vast, redefined world. Slugcats have adapted to the harsh conditions alongside evolved predators! Survive new environmental conditions, dangers and explore uncharted territory.\n\n\"Return to the unwavering wild in Downpour, where you explore new, harsh lands and survive new predators. As time passed, the slugcat has evolved. With five variants of the species - take advantage of various skills that they possess and explore their own personal tales.\n\n**Characters:**\n\n\u003C!--image--\u003E\n![Rain World-1dw7e](https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1dw7e.gif)\n\n\u003C!--textBlock--\u003E\n\u003C!--title--\u003E\n# The Rivulet\n\u003C!--text--\u003E\nAn aquatic evolved slugcat - it breathes longer underwater and moves through the world with ease.\n\n\u003C!--image--\u003E\n![Rain World-iod26](https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-iod26.gif)\n\n\u003C!--textBlock--\u003E\n\u003C!--title--\u003E\n# The Gourmand\n\u003C!--text--\u003E\nAn indulger of the simpler pleasures in life. A culinary expert that excels in manipulating the objects it finds along its journey.\n\n\u003C!--image--\u003E\n![Rain World-1kqwz](https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1kqwz.gif)\n\n\u003C!--textBlock--\u003E\n\u003C!--title--\u003E\n# The Artificer\n\u003C!--text--\u003E\nA fierce combatant; master of pyrotechnics and explosives.\n\n\u003C!--image--\u003E\n![Rain World-1ew0f](https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1ew0f.gif)\n\n\u003C!--textBlock--\u003E\n\u003C!--title--\u003E\n# The Spearmaster\n\u003C!--text--\u003E\nAn abnormality with no mouth that uses needles pulled from its body for combat and to feed.\n\n\u003C!--image--\u003E\n![Rain World-1aelb](https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1aelb.gif)\n\n\u003C!--textBlock--\u003E\n\u003C!--title--\u003E\n# The Saint\n\u003C!--text--\u003E\nAttuned to the etheric plane, this slugcat uses no weapons but instead uses its long tongue to grip far away objects or platforms.\n\nThe expansion also includes challenging one-time scenarios, a randomizer featuring complex quests to complete, and local co-op support! For players looking test their limits in Challenge Mode or players looking for a chill experience in Safari Mode, Rain World: Downpour features something new for every player! Optional additional mechanical additions allow for a new spin on the Rain World experience – tutorialized hints, alternate routing options, a new map system, handy collectibles tracker for storyline completion, and many more.\n",
+                                    "seller": {
+                                        "id": "o-vzv8n7jse99sluj4vaa8522rh45cvg",
+                                        "name": "Akupara Games"
+                                    },
+                                    "productSlug": null,
+                                    "publisherDisplayName": "Akupara Games",
+                                    "releaseDate": "2023-01-25T06:00:00.000Z",
+                                    "urlSlug": "downpour",
+                                    "url": null,
+                                    "tags": [{
+                                        "id": "1080",
+                                        "name": "Survival",
+                                        "groupName": "genre"
+                                    }, {
+                                        "id": "1370",
+                                        "name": "Single Player",
+                                        "groupName": "feature"
+                                    }, {
+                                        "id": "9547",
+                                        "name": "Windows",
+                                        "groupName": "platform"
+                                    }, {
+                                        "id": "1117",
+                                        "name": "Adventure",
+                                        "groupName": "genre"
+                                    }, {
+                                        "id": "9549",
+                                        "name": "Controller Support",
+                                        "groupName": "feature"
+                                    }, {
+                                        "id": "1151",
+                                        "name": "Platformer",
+                                        "groupName": "genre"
+                                    }],
+                                    "items": [{
+                                        "id": "8e9bd28f95ca41f7a586dbc05c0ec22d",
+                                        "namespace": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                        "releaseInfo": null
+                                    }],
+                                    "customAttributes": [{
+                                        "key": "isManuallySetRefundableType",
+                                        "value": "true"
+                                    }, {
+                                        "key": "autoGeneratedPrice",
+                                        "value": "false"
+                                    }, {
+                                        "key": "isManuallySetViewableDate",
+                                        "value": "false"
+                                    }, {
+                                        "key": "isManuallySetPCReleaseDate",
+                                        "value": "true"
+                                    }, {
+                                        "key": "isBlockchainUsed",
+                                        "value": "false"
+                                    }],
+                                    "categories": [{
+                                        "path": "addons"
+                                    }, {
+                                        "path": "addons\u002Fdurable"
+                                    }],
+                                    "catalogNs": {
+                                        "parent": "da2d8e4b946b4b50b1ad818727469873",
+                                        "displayName": "Live",
+                                        "mappings": [{
+                                            "createdDate": "2023-01-25T19:25:42.445Z",
+                                            "deletedDate": null,
+                                            "mappings": {
+                                                "cmsSlug": null,
+                                                "offerId": "1efa9febbd9744caab24276d9c273862",
+                                                "prePurchaseOfferId": null
+                                            },
+                                            "pageSlug": "rain-world-4c860c",
+                                            "pageType": "productHome",
+                                            "productId": "da2d8e4b946b4b50b1ad818727469873",
+                                            "sandboxId": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                            "updatedDate": "2023-01-26T18:08:03.568Z"
+                                        }, {
+                                            "createdDate": "2023-01-25T19:25:42.445Z",
+                                            "deletedDate": null,
+                                            "mappings": {
+                                                "cmsSlug": null,
+                                                "offerId": "3487371f265643138278190f2a57fc0c",
+                                                "prePurchaseOfferId": null
+                                            },
+                                            "pageSlug": "rain-world-downpour-a3ccfb",
+                                            "pageType": "offer",
+                                            "productId": "da2d8e4b946b4b50b1ad818727469873",
+                                            "sandboxId": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                            "updatedDate": "2023-01-26T18:08:03.568Z"
+                                        }],
+                                        "store": "EGS"
+                                    },
+                                    "offerMappings": [{
+                                        "createdDate": "2023-01-25T19:25:42.445Z",
+                                        "deletedDate": null,
+                                        "mappings": {
+                                            "cmsSlug": null
+                                        },
+                                        "pageSlug": "rain-world-downpour-a3ccfb",
+                                        "pageType": "offer",
+                                        "productId": "da2d8e4b946b4b50b1ad818727469873",
+                                        "sandboxId": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                        "updatedDate": "2023-01-26T18:08:03.568Z"
+                                    }],
+                                    "pcReleaseDate": "2023-01-19T17:00:00.000Z",
+                                    "prePurchase": null,
+                                    "approximateReleasePlan": null,
+                                    "price": {
+                                        "totalPrice": {
+                                            "discountPrice": 157000,
+                                            "originalPrice": 157000,
+                                            "voucherDiscount": 0,
+                                            "discount": 0,
+                                            "currencyCode": "VND",
+                                            "currencyInfo": {
+                                                "decimals": 0
+                                            },
+                                            "fmtPrice": {
+                                                "originalPrice": "₫157,000",
+                                                "discountPrice": "₫157,000",
+                                                "intermediatePrice": "₫157,000"
+                                            }
+                                        },
+                                        "lineOffers": [{
+                                            "appliedRules": []
+                                        }],
+                                        "priceDetails": {
+                                            "promotions": []
+                                        }
+                                    },
+                                    "allDependNsOfferIds": null,
+                                    "majorNsOffers": [],
+                                    "subNsOffers": [],
+                                    "status": "ACTIVE",
+                                    "refundType": "REFUNDABLE"
+                                }
+                            }
+                        }],
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339479,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["abafd6e0aa80535c43676f533f0283c7f5214a59e9fae6ebfb37bed1b1bb2e9b", ["0", "{\"locale\":\"en-US\",\"country\":\"VN\",\"sandboxId\":\"c8b495f1a9a34972ba0b0c46e8afec31\",\"offerId\":\"3487371f265643138278190f2a57fc0c\"}"]],
+                    "queryHash": "[\"abafd6e0aa80535c43676f533f0283c7f5214a59e9fae6ebfb37bed1b1bb2e9b\",[\"0\",\"{\\\"locale\\\":\\\"en-US\\\",\\\"country\\\":\\\"VN\\\",\\\"sandboxId\\\":\\\"c8b495f1a9a34972ba0b0c46e8afec31\\\",\\\"offerId\\\":\\\"3487371f265643138278190f2a57fc0c\\\"}\"]]"
+                }, {
+                    "state": {
+                        "data": {
+                            "Video": {
+                                "fetchVideoByLocale": [{
+                                    "recipe": "video-webm",
+                                    "mediaRefId": "bc940dc583a342f180dfebbf210a133b"
+                                }, {
+                                    "recipe": "video-hls",
+                                    "mediaRefId": "949837c3e03048639ca3590081346c26"
+                                }, {
+                                    "recipe": "video-fmp4",
+                                    "mediaRefId": "69212fed9f144714aac8e459e2f72bfd"
+                                }]
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339680,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["getVideoById", ["locale", "en-US"], ["videoId", "30c90771-6eb5-4195-a1a8-efd53e88be4d"], "52dbe3764aa1012313360dbbfaf2b550975edd7f30c2427ad00495c269646003"],
+                    "queryHash": "[\"getVideoById\",[\"locale\",\"en-US\"],[\"videoId\",\"30c90771-6eb5-4195-a1a8-efd53e88be4d\"],\"52dbe3764aa1012313360dbbfaf2b550975edd7f30c2427ad00495c269646003\"]"
+                }, {
+                    "state": {
+                        "data": {
+                            "StoreCategory": {
+                                "categories": [{
+                                    "_slug": "casual-games",
+                                    "pageData": {
+                                        "description": "Download and play Casual games from Epic Games Store. We offer some of the best and most exciting Casual PC games. ",
+                                        "title": "Casual Games",
+                                        "tagName": "casual"
+                                    }
+                                }, {
+                                    "_slug": "open-world-games",
+                                    "pageData": {
+                                        "description": "Download and play Open World games from Epic Games Store. We offer some of the best and most exciting Open World games.",
+                                        "title": "Open World Games",
+                                        "tagName": "open world"
+                                    }
+                                }, {
+                                    "_slug": "sports-games",
+                                    "pageData": {
+                                        "description": "Download and play SPORTS games from Epic Games Store. We offer some of the best and most exciting SPORTS games.",
+                                        "title": "Sports Games",
+                                        "tagName": "sports"
+                                    }
+                                }, {
+                                    "_slug": "tower-defense-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Tower Defense games. Download today and start playing fun and exciting Tower Defense PC games.",
+                                        "title": "Tower Defense Games",
+                                        "tagName": "tower defense"
+                                    }
+                                }, {
+                                    "_slug": "horror-games",
+                                    "pageData": {
+                                        "description": "Download and play Horror games from Epic Games Store. We offer some of the best and most exciting Horror games to play single player or online.",
+                                        "title": "Horror Games",
+                                        "tagName": "horror"
+                                    }
+                                }, {
+                                    "_slug": "puzzle-games",
+                                    "pageData": {
+                                        "description": "Download and play Puzzle games from Epic Games Store. We offer some of the best and most exciting Puzzle games.",
+                                        "title": "Puzzle Games",
+                                        "tagName": "puzzle"
+                                    }
+                                }, {
+                                    "_slug": "indie-games",
+                                    "pageData": {
+                                        "description": "Download and play Indie games from Epic Games Store. We offer some of the best and most exciting Indie games.",
+                                        "title": "Indie Games",
+                                        "tagName": "indie"
+                                    }
+                                }, {
+                                    "_slug": "survival-games",
+                                    "pageData": {
+                                        "description": "Download and play PC Survival games from Epic Games Store. We offer some of the best and most exciting Survival games.",
+                                        "title": "Survival Games",
+                                        "tagName": "survival"
+                                    }
+                                }, {
+                                    "_slug": "strategy-games",
+                                    "pageData": {
+                                        "description": "Download and play Strategy games from Epic Games Store. We offer some of the best and most exciting Strategy games.",
+                                        "title": "Strategy Games",
+                                        "tagName": "strategy"
+                                    }
+                                }, {
+                                    "_slug": "multiplayer-games",
+                                    "pageData": {
+                                        "description": "Download and play Multiplayer games from Epic Games Store. We offer some of the best and most exciting Multiplayer games to play with friends or anyone.",
+                                        "title": "Multiplayer Games",
+                                        "tagName": "multiplayer"
+                                    }
+                                }, {
+                                    "_slug": "shooter-games",
+                                    "pageData": {
+                                        "description": "Download and play Shooter games from Epic Games Store. We offer some of the best and most exciting First and Third Person Shooting games to play online, single player or with friends.",
+                                        "title": "Shooter Games",
+                                        "tagName": "shooter"
+                                    }
+                                }, {
+                                    "_slug": "rpg-games",
+                                    "pageData": {
+                                        "description": "Download and play RPG games from Epic Games Store. We offer some of the best and most exciting Role Playing Games.",
+                                        "title": "RPG Games",
+                                        "tagName": "rpg"
+                                    }
+                                }, {
+                                    "_slug": "platform-games",
+                                    "pageData": {
+                                        "description": "Download and play Platformer games from Epic Games Store. We offer some of the best and most exciting Platformer games.",
+                                        "title": "Platformer Games",
+                                        "tagName": "platformer"
+                                    }
+                                }, {
+                                    "_slug": "turn-based-games",
+                                    "pageData": {
+                                        "description": "Download and play Turn Based games from Epic Games Store. We offer some of the best and most exciting Turn Based games.",
+                                        "title": "Turn Based Games",
+                                        "tagName": "turn-based"
+                                    }
+                                }, {
+                                    "_slug": "racing-games",
+                                    "pageData": {
+                                        "description": "Download and play Racing games from Epic Games Store. We offer some of the best PC Racing games involving cars, trucks, motorcycles, boats, planes and more.",
+                                        "title": "Racing Games",
+                                        "tagName": "racing"
+                                    }
+                                }, {
+                                    "_slug": "action-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best action Games. Download today and start playing fun and exciting action Games.",
+                                        "title": "Action Games",
+                                        "tagName": "action"
+                                    }
+                                }, {
+                                    "_slug": "single-player-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Single Player games. Download today and start playing fun and exciting Single Player PC games.",
+                                        "title": "Single Player Games",
+                                        "tagName": "single player"
+                                    }
+                                }, {
+                                    "_slug": "vr-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best VR Games. Download today and start playing fun and exciting PC VR Games.",
+                                        "title": "VR Games",
+                                        "tagName": "vr"
+                                    }
+                                }, {
+                                    "_slug": "co-op-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Co-Op PC Games. Download today and start playing fun and exciting Co-Op Games.",
+                                        "title": "Co-Op Games",
+                                        "tagName": "co-op"
+                                    }
+                                }, {
+                                    "_slug": "fighting-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Fighting Games. Download today and start playing fun and exciting PC Fighting Games.",
+                                        "title": "Fighting Games",
+                                        "tagName": "fighting"
+                                    }
+                                }, {
+                                    "_slug": "simulation-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Simulation Games. Download today and start playing fun and exciting Simulation Games for PC.",
+                                        "title": "Simulation Games",
+                                        "tagName": "simulation"
+                                    }
+                                }, {
+                                    "_slug": "rogue-lite-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Rogue-Lite Games. Download today and start playing fun and exciting Rogue-Lite Games.",
+                                        "title": "Rogue-Lite Games",
+                                        "tagName": "rogue-lite"
+                                    }
+                                }, {
+                                    "_slug": "stealth-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Stealth Games. Download today and start playing fun and exciting Stealth Games.",
+                                        "title": "Stealth Games",
+                                        "tagName": "stealth"
+                                    }
+                                }, {
+                                    "_slug": "mmo-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best MMO games. Download today and start playing fun and exciting MMO games.",
+                                        "title": "MMO Games",
+                                        "tagName": "mmo"
+                                    }
+                                }, {
+                                    "_slug": "retro-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Retro Games. Download today and start playing fun and exciting Retro PC Games.",
+                                        "title": "Retro Games",
+                                        "tagName": "retro"
+                                    }
+                                }, {
+                                    "_slug": "space-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Space Games. Download today and start playing fun and exciting Space PC Games.",
+                                        "title": "Space Games",
+                                        "tagName": "space"
+                                    }
+                                }, {
+                                    "_slug": "cross-platform-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Cross Platform Games. Download today and start playing fun and exciting Cross Platform Games.",
+                                        "title": "Cross Platform Games",
+                                        "tagName": "cross platform"
+                                    }
+                                }, {
+                                    "_slug": "windows-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Windows Games. Download today and start playing fun and exciting Windows PC Games.",
+                                        "title": "Windows Games",
+                                        "tagName": "windows"
+                                    }
+                                }, {
+                                    "_slug": "mac-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Mac Games. Download today and start playing fun and exciting macOS Games.",
+                                        "title": "Mac Games",
+                                        "tagName": "mac os"
+                                    }
+                                }, {
+                                    "_slug": "real-time-strategy-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best RTS games. Download today and start playing fun and exciting RTS games.",
+                                        "title": "RTS Games",
+                                        "tagName": "rts"
+                                    }
+                                }, {
+                                    "_slug": "fantasy-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Fantasy games. Download today and start playing fun and exciting PC Fantasy games.",
+                                        "title": "Fantasy Games",
+                                        "tagName": "fantasy"
+                                    }
+                                }, {
+                                    "_slug": "turn-based-strategy-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Turn Based Strategy games. Download today and start playing fun and exciting Turn Based Strategy games.",
+                                        "title": "Turn Based Strategy Games",
+                                        "tagName": "turn-based strategy"
+                                    }
+                                }, {
+                                    "_slug": "adventure-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Adventure Games. Download today and start playing fun and exciting PC Adventure Games.",
+                                        "title": "Adventure Games",
+                                        "tagName": "adventure"
+                                    }
+                                }, {
+                                    "_slug": "party-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Party Games. Download today and start playing fun and exciting Party video games for PC.",
+                                        "title": "Party Games",
+                                        "tagName": "party"
+                                    }
+                                }, {
+                                    "_slug": "exploration-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Exploration Games. Download today and start playing fun and exciting Exploration Games.",
+                                        "title": "Exploration Games",
+                                        "tagName": "exploration"
+                                    }
+                                }, {
+                                    "_slug": "city-builder-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best City Builder Games. Download today and start playing fun and exciting PC City Builder Games.",
+                                        "title": "City Builder Games",
+                                        "tagName": "city builder"
+                                    }
+                                }, {
+                                    "_slug": "card-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best PC Card Games. Download today and start playing fun and exciting Card Games.",
+                                        "title": "Card Games",
+                                        "tagName": "card"
+                                    }
+                                }, {
+                                    "_slug": "music-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Music Games. Download today and start playing fun and exciting PC Music Games.",
+                                        "title": "Music Games",
+                                        "tagName": "music"
+                                    }
+                                }, {
+                                    "_slug": "dungeon-crawler-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Dungeon Crawler Games. Download today and start playing fun and exciting PC Dungeon Crawler Games.",
+                                        "title": "Dungeon Crawler Games",
+                                        "tagName": "dungeon crawler"
+                                    }
+                                }, {
+                                    "_slug": "trivia-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Trivia Games. Download today and start playing fun and challenging PC Trivia Games.",
+                                        "title": "Trivia Games",
+                                        "tagName": "trivia"
+                                    }
+                                }, {
+                                    "_slug": "action-adventure-games",
+                                    "pageData": {
+                                        "description": "Epic Games Store offers some of the best Action-Adventure Games. Download today and start playing fun and exciting PC Action-Adventure Games.",
+                                        "title": "Action-Adventure Games",
+                                        "tagName": "action-adventure"
+                                    }
+                                }]
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339560,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["getCategories", ["locale", "en-US"], "7844ed15d2fd50458e1296addfece19e1cb94fa975684c30e8414d2e730154a2"],
+                    "queryHash": "[\"getCategories\",[\"locale\",\"en-US\"],\"7844ed15d2fd50458e1296addfece19e1cb94fa975684c30e8414d2e730154a2\"]"
+                }, {
+                    "state": {
+                        "data": {
+                            "Catalog": {
+                                "catalogOffer": {
+                                    "title": "Rain World",
+                                    "id": "1efa9febbd9744caab24276d9c273862",
+                                    "namespace": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                    "countriesBlacklist": ["KR"],
+                                    "countriesWhitelist": null,
+                                    "developerDisplayName": "Videocult",
+                                    "description": "You are a nomadic slugcat, both predator and prey in a broken ecosystem. Grab your spear and brave the industrial wastes, hunting enough food to survive, but be wary— other, bigger creatures have the same plan... and slugcats look delicious.",
+                                    "effectiveDate": "2023-01-25T06:00:00.000Z",
+                                    "expiryDate": null,
+                                    "viewableDate": "2023-01-25T06:00:00.000Z",
+                                    "allowPurchaseForPartialOwned": true,
+                                    "offerType": "BASE_GAME",
+                                    "externalLinks": null,
+                                    "isCodeRedemptionOnly": false,
+                                    "keyImages": [{
+                                        "type": "OfferImageWide",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1j3hz.png"
+                                    }, {
+                                        "type": "OfferImageTall",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-28tjl.png"
+                                    }, {
+                                        "type": "Thumbnail",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-28tjl.png"
+                                    }],
+                                    "longDescription": null,
+                                    "seller": {
+                                        "id": "o-vzv8n7jse99sluj4vaa8522rh45cvg",
+                                        "name": "Akupara Games"
+                                    },
+                                    "productSlug": null,
+                                    "publisherDisplayName": "Akupara Games",
+                                    "releaseDate": "2023-01-25T06:00:00.000Z",
+                                    "urlSlug": "ca60135c9b124710b457a3c528b68291",
+                                    "url": null,
+                                    "tags": [{
+                                        "id": "21121",
+                                        "name": "Great for Quick Sessions",
+                                        "groupName": "usersay"
+                                    }, {
+                                        "id": "21122",
+                                        "name": "Diverse Characters",
+                                        "groupName": "usersay"
+                                    }, {
+                                        "id": "21127",
+                                        "name": "Creative Community",
+                                        "groupName": "usersay"
+                                    }, {
+                                        "id": "1080",
+                                        "name": "Survival",
+                                        "groupName": "genre"
+                                    }, {
+                                        "id": "21129",
+                                        "name": "Challenging Combat",
+                                        "groupName": "usersay"
+                                    }, {
+                                        "id": "1370",
+                                        "name": "Single Player",
+                                        "groupName": "feature"
+                                    }, {
+                                        "id": "9547",
+                                        "name": "Windows",
+                                        "groupName": "platform"
+                                    }, {
+                                        "id": "1117",
+                                        "name": "Adventure",
+                                        "groupName": "genre"
+                                    }, {
+                                        "id": "9549",
+                                        "name": "Controller Support",
+                                        "groupName": "feature"
+                                    }, {
+                                        "id": "1151",
+                                        "name": "Platformer",
+                                        "groupName": "genre"
+                                    }],
+                                    "items": [{
+                                        "id": "1571894fd2e84f90bbce8c1b5e1bffb9",
+                                        "namespace": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                        "releaseInfo": []
+                                    }],
+                                    "customAttributes": [{
+                                        "key": "autoGeneratedPrice",
+                                        "value": "false"
+                                    }, {
+                                        "key": "isManuallySetViewableDate",
+                                        "value": "false"
+                                    }, {
+                                        "key": "isManuallySetPCReleaseDate",
+                                        "value": "true"
+                                    }, {
+                                        "key": "isBlockchainUsed",
+                                        "value": "false"
+                                    }],
+                                    "categories": [{
+                                        "path": "games\u002Fedition\u002Fbase"
+                                    }, {
+                                        "path": "games\u002Fedition"
+                                    }, {
+                                        "path": "games"
+                                    }],
+                                    "catalogNs": {
+                                        "parent": "da2d8e4b946b4b50b1ad818727469873",
+                                        "displayName": "Live",
+                                        "mappings": [{
+                                            "createdDate": "2023-01-25T19:25:42.445Z",
+                                            "deletedDate": null,
+                                            "mappings": {
+                                                "cmsSlug": null,
+                                                "offerId": "1efa9febbd9744caab24276d9c273862",
+                                                "prePurchaseOfferId": null
+                                            },
+                                            "pageSlug": "rain-world-4c860c",
+                                            "pageType": "productHome",
+                                            "productId": "da2d8e4b946b4b50b1ad818727469873",
+                                            "sandboxId": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                            "updatedDate": "2023-01-26T18:08:03.568Z"
+                                        }, {
+                                            "createdDate": "2023-01-25T19:25:42.445Z",
+                                            "deletedDate": null,
+                                            "mappings": {
+                                                "cmsSlug": null,
+                                                "offerId": "3487371f265643138278190f2a57fc0c",
+                                                "prePurchaseOfferId": null
+                                            },
+                                            "pageSlug": "rain-world-downpour-a3ccfb",
+                                            "pageType": "offer",
+                                            "productId": "da2d8e4b946b4b50b1ad818727469873",
+                                            "sandboxId": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                            "updatedDate": "2023-01-26T18:08:03.568Z"
+                                        }],
+                                        "store": "EGS"
+                                    },
+                                    "offerMappings": [{
+                                        "createdDate": "2023-01-25T19:25:42.445Z",
+                                        "deletedDate": null,
+                                        "mappings": {
+                                            "cmsSlug": null
+                                        },
+                                        "pageSlug": "rain-world-4c860c",
+                                        "pageType": "productHome",
+                                        "productId": "da2d8e4b946b4b50b1ad818727469873",
+                                        "sandboxId": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                        "updatedDate": "2023-01-26T18:08:03.568Z"
+                                    }],
+                                    "pcReleaseDate": "2017-03-28T05:00:00.000Z",
+                                    "prePurchase": null,
+                                    "approximateReleasePlan": null,
+                                    "price": {
+                                        "totalPrice": {
+                                            "discountPrice": 261000,
+                                            "originalPrice": 261000,
+                                            "voucherDiscount": 0,
+                                            "discount": 0,
+                                            "currencyCode": "VND",
+                                            "currencyInfo": {
+                                                "decimals": 0
+                                            },
+                                            "fmtPrice": {
+                                                "originalPrice": "₫261,000",
+                                                "discountPrice": "₫261,000",
+                                                "intermediatePrice": "₫261,000"
+                                            }
+                                        },
+                                        "lineOffers": [{
+                                            "appliedRules": []
+                                        }],
+                                        "priceDetails": {
+                                            "promotions": []
+                                        }
+                                    },
+                                    "allDependNsOfferIds": null,
+                                    "majorNsOffers": [],
+                                    "subNsOffers": [],
+                                    "status": "ACTIVE",
+                                    "refundType": "SELF_REFUNDABLE"
+                                }
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339578,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["getCatalogOffer", ["country", "VN"], ["locale", "en-US"], ["offerId", "1efa9febbd9744caab24276d9c273862"], ["sandboxId", "c8b495f1a9a34972ba0b0c46e8afec31"], "abafd6e0aa80535c43676f533f0283c7f5214a59e9fae6ebfb37bed1b1bb2e9b"],
+                    "queryHash": "[\"getCatalogOffer\",[\"country\",\"VN\"],[\"locale\",\"en-US\"],[\"offerId\",\"1efa9febbd9744caab24276d9c273862\"],[\"sandboxId\",\"c8b495f1a9a34972ba0b0c46e8afec31\"],\"abafd6e0aa80535c43676f533f0283c7f5214a59e9fae6ebfb37bed1b1bb2e9b\"]"
+                }, {
+                    "state": {
+                        "data": {
+                            "Catalog": {
+                                "catalogOffers": {
+                                    "elements": [{
+                                        "id": "1efa9febbd9744caab24276d9c273862",
+                                        "countriesBlacklist": ["KR"],
+                                        "countriesWhitelist": null,
+                                        "customAttributes": [{
+                                            "key": "autoGeneratedPrice",
+                                            "value": "false"
+                                        }, {
+                                            "key": "isManuallySetViewableDate",
+                                            "value": "false"
+                                        }, {
+                                            "key": "isManuallySetPCReleaseDate",
+                                            "value": "true"
+                                        }, {
+                                            "key": "isBlockchainUsed",
+                                            "value": "false"
+                                        }],
+                                        "isCodeRedemptionOnly": false,
+                                        "prePurchase": null
+                                    }],
+                                    "paging": {
+                                        "total": 1
+                                    }
+                                }
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339589,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["getRelatedOfferIdsByCategory", ["allowCountries", "VN"], ["category", "games\u002Fedition"], ["codeRedemptionOnly", "false"], ["country", "VN"], ["locale", "en-US"], ["namespace", "c8b495f1a9a34972ba0b0c46e8afec31"], ["sortBy", "releaseDate"], ["sortDir", "DESC"], "ff4dea7ebf14b25dc1cbedffe1d90620318a7bffea481fea02ac6e87310326f4"],
+                    "queryHash": "[\"getRelatedOfferIdsByCategory\",[\"allowCountries\",\"VN\"],[\"category\",\"games\u002Fedition\"],[\"codeRedemptionOnly\",\"false\"],[\"country\",\"VN\"],[\"locale\",\"en-US\"],[\"namespace\",\"c8b495f1a9a34972ba0b0c46e8afec31\"],[\"sortBy\",\"releaseDate\"],[\"sortDir\",\"DESC\"],\"ff4dea7ebf14b25dc1cbedffe1d90620318a7bffea481fea02ac6e87310326f4\"]"
+                }, {
+                    "state": {
+                        "data": {
+                            "Catalog": {
+                                "catalogOffers": {
+                                    "elements": [{
+                                        "id": "1efa9febbd9744caab24276d9c273862",
+                                        "countriesBlacklist": ["KR"],
+                                        "countriesWhitelist": null,
+                                        "customAttributes": [{
+                                            "key": "autoGeneratedPrice",
+                                            "value": "false"
+                                        }, {
+                                            "key": "isManuallySetViewableDate",
+                                            "value": "false"
+                                        }, {
+                                            "key": "isManuallySetPCReleaseDate",
+                                            "value": "true"
+                                        }, {
+                                            "key": "isBlockchainUsed",
+                                            "value": "false"
+                                        }],
+                                        "isCodeRedemptionOnly": false,
+                                        "prePurchase": null
+                                    }],
+                                    "paging": {
+                                        "total": 1
+                                    }
+                                }
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339589,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["getRelatedOfferIdsByCategory", ["allowCountries", "VN"], ["category", "software\u002Fedition|games\u002Fedition|games\u002Fdemo|games\u002Ftrial"], ["codeRedemptionOnly", "false"], ["country", "VN"], ["locale", "en-US"], ["namespace", "c8b495f1a9a34972ba0b0c46e8afec31"], ["sortBy", "currentPrice"], ["sortDir", "ASC"], "ff4dea7ebf14b25dc1cbedffe1d90620318a7bffea481fea02ac6e87310326f4"],
+                    "queryHash": "[\"getRelatedOfferIdsByCategory\",[\"allowCountries\",\"VN\"],[\"category\",\"software\u002Fedition|games\u002Fedition|games\u002Fdemo|games\u002Ftrial\"],[\"codeRedemptionOnly\",\"false\"],[\"country\",\"VN\"],[\"locale\",\"en-US\"],[\"namespace\",\"c8b495f1a9a34972ba0b0c46e8afec31\"],[\"sortBy\",\"currentPrice\"],[\"sortDir\",\"ASC\"],\"ff4dea7ebf14b25dc1cbedffe1d90620318a7bffea481fea02ac6e87310326f4\"]"
+                }, {
+                    "state": {
+                        "data": {
+                            "__typename": "ProductCriticReviewsEnabled",
+                            "criticReviews": {
+                                "__typename": "CriticReviews",
+                                "criticAverage": 66,
+                                "criticRating": "Fair",
+                                "recommendPercentage": 43,
+                                "reviews": {
+                                    "__typename": "PaginatedCriticReviews",
+                                    "data": [{
+                                        "author": "Shaun Prescott",
+                                        "body": "Few will see the more remote corners of Rain World’s relentlessly dire stretch, but those who do are unlikely to forget the experience.",
+                                        "outlet": "PC Gamer",
+                                        "score": {
+                                            "__typename": "CriticReviewNumericScore",
+                                            "earnedScore": 80,
+                                            "totalScore": 100
+                                        },
+                                        "url": "http:\u002F\u002Fwww.pcgamer.com\u002Frain-world-review\u002F"
+                                    }, {
+                                        "author": "Joe Skrebels",
+                                        "body": "Rain World is a maddening thing, because of quite how special it could have been. Beautiful environments, incredible animations and enticingly hazy mechanics are fantastic, but the sheer cruelty of how it's pieced out to the player transcends challenge and becomes an unwanted trial.",
+                                        "outlet": "IGN",
+                                        "score": {
+                                            "__typename": "CriticReviewNumericScore",
+                                            "earnedScore": 6.3,
+                                            "totalScore": 10
+                                        },
+                                        "url": "http:\u002F\u002Fwww.ign.com\u002Farticles\u002F2017\u002F03\u002F27\u002Frain-world-review"
+                                    }, {
+                                        "author": "Miguel Concepcion",
+                                        "body": "An endearingly designed creature and a captivating world in ruins cannot save this 2D platformer from its punishing gameplay.",
+                                        "outlet": "GameSpot",
+                                        "score": {
+                                            "__typename": "CriticReviewNumericScore",
+                                            "earnedScore": 5,
+                                            "totalScore": 10
+                                        },
+                                        "url": "https:\u002F\u002Fwww.gamespot.com\u002Freviews\u002Frain-world-review\u002F1900-6416648\u002F"
+                                    }],
+                                    "paging": {
+                                        "count": 3,
+                                        "start": 0,
+                                        "total": 3
+                                    }
+                                },
+                                "url": "https:\u002F\u002Fopencritic.com\u002Fgame\u002F4111\u002Frain-world"
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339596,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["egs-platform", "\u002Fapi\u002Fv1\u002Fegs\u002Fproducts\u002Fda2d8e4b946b4b50b1ad818727469873\u002Fcritic-reviews\u002Fopen-critic", "{\"count\":3,\"locale\":\"en-US\",\"start\":0,\"store\":\"EGS\"}"],
+                    "queryHash": "[\"egs-platform\",\"\u002Fapi\u002Fv1\u002Fegs\u002Fproducts\u002Fda2d8e4b946b4b50b1ad818727469873\u002Fcritic-reviews\u002Fopen-critic\",\"{\\\"count\\\":3,\\\"locale\\\":\\\"en-US\\\",\\\"start\\\":0,\\\"store\\\":\\\"EGS\\\"}\"]"
+                }, {
+                    "state": {
+                        "data": {
+                            "Catalog": {
+                                "searchStore": {
+                                    "elements": [],
+                                    "paging": {
+                                        "count": 10,
+                                        "total": 0
+                                    }
+                                }
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339732,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["getProductInBundles", ["allowCountries", "VN"], ["country", "VN"], ["itemNs", "c8b495f1a9a34972ba0b0c46e8afec31"], ["locale", "en-US"], "010c0ac1f60d25fdbe4c990d7a68327f8e9612033e9a2bb1729c94f0efab127d"],
+                    "queryHash": "[\"getProductInBundles\",[\"allowCountries\",\"VN\"],[\"country\",\"VN\"],[\"itemNs\",\"c8b495f1a9a34972ba0b0c46e8afec31\"],[\"locale\",\"en-US\"],\"010c0ac1f60d25fdbe4c990d7a68327f8e9612033e9a2bb1729c94f0efab127d\"]"
+                }, {
+                    "state": {
+                        "data": [{
+                            "Catalog": {
+                                "catalogOffer": {
+                                    "title": "Rain World",
+                                    "id": "1efa9febbd9744caab24276d9c273862",
+                                    "namespace": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                    "countriesBlacklist": ["KR"],
+                                    "countriesWhitelist": null,
+                                    "developerDisplayName": "Videocult",
+                                    "description": "You are a nomadic slugcat, both predator and prey in a broken ecosystem. Grab your spear and brave the industrial wastes, hunting enough food to survive, but be wary— other, bigger creatures have the same plan... and slugcats look delicious.",
+                                    "effectiveDate": "2023-01-25T06:00:00.000Z",
+                                    "expiryDate": null,
+                                    "viewableDate": "2023-01-25T06:00:00.000Z",
+                                    "allowPurchaseForPartialOwned": true,
+                                    "offerType": "BASE_GAME",
+                                    "externalLinks": null,
+                                    "isCodeRedemptionOnly": false,
+                                    "keyImages": [{
+                                        "type": "OfferImageWide",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-1j3hz.png"
+                                    }, {
+                                        "type": "OfferImageTall",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-28tjl.png"
+                                    }, {
+                                        "type": "Thumbnail",
+                                        "url": "https:\u002F\u002Fcdn1.epicgames.com\u002Fspt-assets\u002Fda2d8e4b946b4b50b1ad818727469873\u002Frain-world-28tjl.png"
+                                    }],
+                                    "longDescription": null,
+                                    "seller": {
+                                        "id": "o-vzv8n7jse99sluj4vaa8522rh45cvg",
+                                        "name": "Akupara Games"
+                                    },
+                                    "productSlug": null,
+                                    "publisherDisplayName": "Akupara Games",
+                                    "releaseDate": "2023-01-25T06:00:00.000Z",
+                                    "urlSlug": "ca60135c9b124710b457a3c528b68291",
+                                    "url": null,
+                                    "tags": [{
+                                        "id": "21121",
+                                        "name": "Great for Quick Sessions",
+                                        "groupName": "usersay"
+                                    }, {
+                                        "id": "21122",
+                                        "name": "Diverse Characters",
+                                        "groupName": "usersay"
+                                    }, {
+                                        "id": "21127",
+                                        "name": "Creative Community",
+                                        "groupName": "usersay"
+                                    }, {
+                                        "id": "1080",
+                                        "name": "Survival",
+                                        "groupName": "genre"
+                                    }, {
+                                        "id": "21129",
+                                        "name": "Challenging Combat",
+                                        "groupName": "usersay"
+                                    }, {
+                                        "id": "1370",
+                                        "name": "Single Player",
+                                        "groupName": "feature"
+                                    }, {
+                                        "id": "9547",
+                                        "name": "Windows",
+                                        "groupName": "platform"
+                                    }, {
+                                        "id": "1117",
+                                        "name": "Adventure",
+                                        "groupName": "genre"
+                                    }, {
+                                        "id": "9549",
+                                        "name": "Controller Support",
+                                        "groupName": "feature"
+                                    }, {
+                                        "id": "1151",
+                                        "name": "Platformer",
+                                        "groupName": "genre"
+                                    }],
+                                    "items": [{
+                                        "id": "1571894fd2e84f90bbce8c1b5e1bffb9",
+                                        "namespace": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                        "releaseInfo": []
+                                    }],
+                                    "customAttributes": [{
+                                        "key": "autoGeneratedPrice",
+                                        "value": "false"
+                                    }, {
+                                        "key": "isManuallySetViewableDate",
+                                        "value": "false"
+                                    }, {
+                                        "key": "isManuallySetPCReleaseDate",
+                                        "value": "true"
+                                    }, {
+                                        "key": "isBlockchainUsed",
+                                        "value": "false"
+                                    }],
+                                    "categories": [{
+                                        "path": "games\u002Fedition\u002Fbase"
+                                    }, {
+                                        "path": "games\u002Fedition"
+                                    }, {
+                                        "path": "games"
+                                    }],
+                                    "catalogNs": {
+                                        "parent": "da2d8e4b946b4b50b1ad818727469873",
+                                        "displayName": "Live",
+                                        "mappings": [{
+                                            "createdDate": "2023-01-25T19:25:42.445Z",
+                                            "deletedDate": null,
+                                            "mappings": {
+                                                "cmsSlug": null,
+                                                "offerId": "1efa9febbd9744caab24276d9c273862",
+                                                "prePurchaseOfferId": null
+                                            },
+                                            "pageSlug": "rain-world-4c860c",
+                                            "pageType": "productHome",
+                                            "productId": "da2d8e4b946b4b50b1ad818727469873",
+                                            "sandboxId": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                            "updatedDate": "2023-01-26T18:08:03.568Z"
+                                        }, {
+                                            "createdDate": "2023-01-25T19:25:42.445Z",
+                                            "deletedDate": null,
+                                            "mappings": {
+                                                "cmsSlug": null,
+                                                "offerId": "3487371f265643138278190f2a57fc0c",
+                                                "prePurchaseOfferId": null
+                                            },
+                                            "pageSlug": "rain-world-downpour-a3ccfb",
+                                            "pageType": "offer",
+                                            "productId": "da2d8e4b946b4b50b1ad818727469873",
+                                            "sandboxId": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                            "updatedDate": "2023-01-26T18:08:03.568Z"
+                                        }],
+                                        "store": "EGS"
+                                    },
+                                    "offerMappings": [{
+                                        "createdDate": "2023-01-25T19:25:42.445Z",
+                                        "deletedDate": null,
+                                        "mappings": {
+                                            "cmsSlug": null
+                                        },
+                                        "pageSlug": "rain-world-4c860c",
+                                        "pageType": "productHome",
+                                        "productId": "da2d8e4b946b4b50b1ad818727469873",
+                                        "sandboxId": "c8b495f1a9a34972ba0b0c46e8afec31",
+                                        "updatedDate": "2023-01-26T18:08:03.568Z"
+                                    }],
+                                    "pcReleaseDate": "2017-03-28T05:00:00.000Z",
+                                    "prePurchase": null,
+                                    "approximateReleasePlan": null,
+                                    "price": {
+                                        "totalPrice": {
+                                            "discountPrice": 261000,
+                                            "originalPrice": 261000,
+                                            "voucherDiscount": 0,
+                                            "discount": 0,
+                                            "currencyCode": "VND",
+                                            "currencyInfo": {
+                                                "decimals": 0
+                                            },
+                                            "fmtPrice": {
+                                                "originalPrice": "₫261,000",
+                                                "discountPrice": "₫261,000",
+                                                "intermediatePrice": "₫261,000"
+                                            }
+                                        },
+                                        "lineOffers": [{
+                                            "appliedRules": []
+                                        }],
+                                        "priceDetails": {
+                                            "promotions": []
+                                        }
+                                    },
+                                    "allDependNsOfferIds": null,
+                                    "majorNsOffers": [],
+                                    "subNsOffers": [],
+                                    "status": "ACTIVE",
+                                    "refundType": "SELF_REFUNDABLE"
+                                }
+                            }
+                        }],
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339716,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["abafd6e0aa80535c43676f533f0283c7f5214a59e9fae6ebfb37bed1b1bb2e9b", ["0", "{\"locale\":\"en-US\",\"country\":\"VN\",\"sandboxId\":\"c8b495f1a9a34972ba0b0c46e8afec31\",\"offerId\":\"1efa9febbd9744caab24276d9c273862\"}"]],
+                    "queryHash": "[\"abafd6e0aa80535c43676f533f0283c7f5214a59e9fae6ebfb37bed1b1bb2e9b\",[\"0\",\"{\\\"locale\\\":\\\"en-US\\\",\\\"country\\\":\\\"VN\\\",\\\"sandboxId\\\":\\\"c8b495f1a9a34972ba0b0c46e8afec31\\\",\\\"offerId\\\":\\\"1efa9febbd9744caab24276d9c273862\\\"}\"]]"
+                }, {
+                    "state": {
+                        "data": {
+                            "Catalog": {
+                                "catalogOffers": {
+                                    "elements": [{
+                                        "id": "1efa9febbd9744caab24276d9c273862",
+                                        "countriesBlacklist": ["KR"],
+                                        "countriesWhitelist": null,
+                                        "customAttributes": [{
+                                            "key": "autoGeneratedPrice",
+                                            "value": "false"
+                                        }, {
+                                            "key": "isManuallySetViewableDate",
+                                            "value": "false"
+                                        }, {
+                                            "key": "isManuallySetPCReleaseDate",
+                                            "value": "true"
+                                        }, {
+                                            "key": "isBlockchainUsed",
+                                            "value": "false"
+                                        }],
+                                        "isCodeRedemptionOnly": false,
+                                        "prePurchase": null
+                                    }],
+                                    "paging": {
+                                        "total": 1
+                                    }
+                                }
+                            }
+                        },
+                        "dataUpdateCount": 1,
+                        "dataUpdatedAt": 1727486339857,
+                        "error": null,
+                        "errorUpdateCount": 0,
+                        "errorUpdatedAt": 0,
+                        "fetchFailureCount": 0,
+                        "fetchMeta": null,
+                        "isFetching": false,
+                        "isInvalidated": false,
+                        "isPaused": false,
+                        "status": "success"
+                    },
+                    "queryKey": ["getRelatedOfferIdsByCategory", ["allowCountries", "VN"], ["category", "games\u002Fedition|software\u002Fedition"], ["codeRedemptionOnly", "false"], ["country", "VN"], ["locale", "en-US"], ["namespace", "c8b495f1a9a34972ba0b0c46e8afec31"], ["sortBy", "releaseDate"], ["sortDir", "DESC"], "ff4dea7ebf14b25dc1cbedffe1d90620318a7bffea481fea02ac6e87310326f4"],
+                    "queryHash": "[\"getRelatedOfferIdsByCategory\",[\"allowCountries\",\"VN\"],[\"category\",\"games\u002Fedition|software\u002Fedition\"],[\"codeRedemptionOnly\",\"false\"],[\"country\",\"VN\"],[\"locale\",\"en-US\"],[\"namespace\",\"c8b495f1a9a34972ba0b0c46e8afec31\"],[\"sortBy\",\"releaseDate\"],[\"sortDir\",\"DESC\"],\"ff4dea7ebf14b25dc1cbedffe1d90620318a7bffea481fea02ac6e87310326f4\"]"
+                }]
+            }
